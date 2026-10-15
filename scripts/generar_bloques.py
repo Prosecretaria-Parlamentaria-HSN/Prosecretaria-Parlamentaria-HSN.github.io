@@ -669,6 +669,7 @@ def construir_bloque(ctx, bloque, hoy):
                     "comision": sin_prefijo_de(com["nombre"]),
                     "rol": it["rol"],
                     "senador": nombre_persona(it["nombre"]),
+                    "apellido": titulo(it["nombre"].partition(",")[0].strip()),
                 })
     orden_rol = {"Presidente": 0, "Vicepresidente": 1, "Secretario": 2}
     autoridades.sort(key=lambda a: (orden_rol[a["rol"]], a["comision"]))

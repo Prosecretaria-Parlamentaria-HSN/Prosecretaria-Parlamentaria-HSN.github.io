@@ -148,6 +148,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <section class="panel" id="p-resumen" role="tabpanel"></section>
   <section class="panel" id="p-ods" role="tabpanel" hidden></section>
   <section class="panel" id="p-preferencias" role="tabpanel" hidden></section>
+  <section class="panel" id="p-aprobados" role="tabpanel" hidden></section>
   <section class="panel" id="p-caducar" role="tabpanel" hidden></section>
   <section class="panel" id="p-proyectos" role="tabpanel" hidden></section>
   <section class="panel" id="p-votaciones" role="tabpanel" hidden></section>
@@ -319,41 +320,10 @@ function renderResumen(){
     +kpi(m.con_movimiento,'Proyectos de '+B.anio+' con movimiento')
     +kpi(B.ods.length,plural(B.ods.length,'Orden del día con proyectos del bloque','Órdenes del día con proyectos del bloque'))
     +kpi(B.preferencias.length,plural(B.preferencias.length,'Preferencia en sesiones de '+B.anio,'Preferencias en sesiones de '+B.anio))
+    +kpi(B.aprobados.length,plural(B.aprobados.length,'Proyecto aprobado por el Senado en '+B.anio,'Proyectos aprobados por el Senado en '+B.anio))
     +kpi(B.por_caducar.length,plural(B.por_caducar.length,'Proyecto de ley de '+(B.anio-1)+' por caducar','Proyectos de ley de '+(B.anio-1)+' por caducar'))
     +'</div>';
   h+='<div class="callout"><p>'+esc(B.sintesis)+'</p><div class="cf">Síntesis generada automáticamente con IA a partir de las cifras de esta página · Datos al '+esc(B.datos_al)+'</div></div>';
-
-  /* Órdenes del día (resumen; el detalle está en su pestaña) */
-  h+='<h2>Proyectos con orden del día</h2>';
-  if(B.ods.length){
-    var porCat={}; B.ods.forEach(function(o){porCat[o.categoria]=(porCat[o.categoria]||0)+1;});
-    var catChips=Object.keys(porCat).map(function(c){return num(porCat[c])+' · '+c;});
-    h+='<div class="card" style="margin-top:12px"><div style="display:flex;gap:14px;align-items:baseline;flex-wrap:wrap"><span class="kpi-v">'+num(B.ods.length)+'</span><span class="kpi-l" style="margin:0">'+plural(B.ods.length,'orden del día','órdenes del día')+' de la Ayuda Memoria con proyectos del bloque</span></div>'
-      +chips(catChips)
-      +'<div style="margin-top:10px">'+B.ods.slice(0,3).map(function(o){
-          var e=o.expedientes[0];
-          return '<div class="fila"><span class="k">OD '+esc(o.nro)+'/'+esc(o.anio)+'</span><span class="t">'+esc((e&&e.extracto)||o.descripcion)+'</span></div>';
-        }).join('')+'</div>'
-      +verTodos('ods','Ver el detalle de las '+B.ods.length+' órdenes del día')+'</div>';
-  } else h+=vacio('En este momento no hay órdenes del día con proyectos del bloque en la Ayuda Memoria.');
-
-  /* Preferencias (resumen) */
-  h+='<h2>Proyectos con preferencia solicitada</h2>';
-  if(B.preferencias.length){
-    h+='<div class="card" style="margin-top:12px"><div style="display:flex;gap:14px;align-items:baseline;flex-wrap:wrap"><span class="kpi-v">'+num(B.preferencias.length)+'</span><span class="kpi-l" style="margin:0">'+plural(B.preferencias.length,'preferencia aprobada','preferencias aprobadas')+' en sesiones de '+B.anio+'</span></div>'
-      +'<div style="margin-top:10px">'+B.preferencias.slice(0,3).map(function(p){
-          return '<div class="fila"><span class="k">'+esc(p.id)+'</span><span class="t">'+esc(p.extracto||'Detalle no disponible')+'</span><span class="f">'+esc(p.sesion)+'</span></div>';
-        }).join('')+'</div>'
-      +(B.preferencias.length>3?verTodos('preferencias','Ver el detalle de las '+B.preferencias.length+' preferencias'):verTodos('preferencias','Ver el detalle'))+'</div>';
-  } else h+=vacio('Todavía no hay preferencias registradas para el bloque en las sesiones de '+B.anio+'.');
-
-  /* Por caducar */
-  h+='<h2>Proyectos de ley próximos a caducar</h2>';
-  if(B.por_caducar.length){
-    h+='<div class="card" style="margin-top:12px"><div class="kpi-v">'+num(B.por_caducar.length)+'</div><div class="kpi-l">'+plural(B.por_caducar.length,'proyecto de ley','proyectos de ley')+' de '+(B.anio-1)+' de senadores y senadoras actuales del bloque'
-      +(B.pc_con_avance?' · '+num(B.pc_con_avance)+' con algún avance registrado (reunión de comisión, orden del día o preferencia)':'')+'</div></div>'
-      +verTodos('caducar','Ver el listado completo');
-  } else h+=vacio('No hay proyectos de ley de '+(B.anio-1)+' de senadores y senadoras actuales del bloque pendientes de trámite.');
 
   /* Qué presentó */
   h+='<h2>Qué presentó el bloque en '+B.anio+'</h2><div class="grid g2" style="margin-top:12px">';
@@ -373,14 +343,6 @@ function renderResumen(){
   h+=cs.length?chips(cs).replace('class="chips"','class="chips" style="margin-top:0"'):'<p style="margin:0">Los proyectos del año están en etapa inicial de trámite.</p>';
   h+='<div class="nota">Un mismo proyecto puede aparecer en más de una categoría. Fuentes: agenda de comisiones, Ayuda Memoria (órdenes del día) y Boletín de Novedades del Senado.</div></div>';
 
-  /* Proyectos aprobados por el Senado */
-  if(B.aprobados.length){
-    var AP=5, ap=B.aprobados;
-    h+='<h2>Proyectos aprobados por el Senado</h2><p style="margin-top:10px">Proyectos del bloque aprobados en sesiones de '+B.anio+' ('+num(ap.length)+').</p>'
-      +ap.slice(0,AP).map(tarjetaAprobado).join('');
-    if(ap.length>AP)h+='<div id="ap-resto" hidden>'+ap.slice(AP).map(tarjetaAprobado).join('')+'</div><p class="mas-link"><button type="button" id="ap-btn">Ver los '+(ap.length-AP)+' restantes ↓</button></p>';
-  }
-
   var top=B.comisiones.slice(0,8);
   if(top.length){
     var maxC=Math.max.apply(null,top.map(function(c){return c.giros}));
@@ -390,12 +352,10 @@ function renderResumen(){
   }
   if(B.autoridades.length){
     h+='<h2>Autoridades de comisión</h2><div class="card" style="margin-top:12px">'
-      +chips(B.autoridades.map(function(a){return a.rol+' · '+a.comision})).replace('class="chips"','class="chips" style="margin-top:0"')
+      +chips(B.autoridades.map(function(a){return a.rol+' · '+a.comision+' · '+a.apellido})).replace('class="chips"','class="chips" style="margin-top:0"')
       +'<div class="nota">Cargos que ocupan senadores del bloque en las comisiones permanentes.</div></div>';
   }
   $('p-resumen').innerHTML=h;
-  var apb=$('ap-btn'); if(apb)apb.addEventListener('click',function(){var r=$('ap-resto');r.hidden=!r.hidden;apb.textContent=r.hidden?'Ver los '+(B.aprobados.length-5)+' restantes ↓':'Ocultar ↑';});
-  Array.prototype.forEach.call($('p-resumen').querySelectorAll('[data-ir]'),function(b){b.addEventListener('click',function(){mostrar(b.getAttribute('data-ir'));});});
 }
 
 /* ── Secciones con listado ──────────────────────────────── */
@@ -415,6 +375,14 @@ function renderPreferencias(){
     texto:function(p){return p.id+' '+p.extracto+' '+p.autores.join(' ')+' '+p.motivo;},
     uno:'preferencia',varios:'preferencias',vacio:'Todavía no hay preferencias registradas para el bloque en las sesiones de '+B.anio+'.',
     nota:'Fuente: Boletín de Novedades del Senado. Una preferencia puede corresponder a un proyecto de años anteriores.'});
+}
+function renderAprobados(){
+  listaPaginada({panel:'aprobados',titulo:'Proyectos aprobados por el Senado',
+    intro:'Proyectos del bloque aprobados en sesiones de '+B.anio+', sin importar el año en que se presentaron.',
+    items:B.aprobados,tarjeta:tarjetaAprobado,
+    texto:function(p){return p.id+' '+p.extracto+' '+p.autores.join(' ');},
+    uno:'proyecto aprobado',varios:'proyectos aprobados',vacio:'Todavía no hay proyectos del bloque aprobados en sesiones de '+B.anio+'.',
+    nota:'Fuente: Boletín de Novedades del Senado.'});
 }
 function renderCaducar(){
   listaPaginada({panel:'caducar',titulo:'Proyectos de ley próximos a caducar',
@@ -496,9 +464,9 @@ function renderMetodo(){
 }
 
 /* ── Arranque ───────────────────────────────────────────── */
-var SECCIONES=[['resumen','Resumen'],['ods','Órdenes del día'],['preferencias','Preferencias'],['caducar','Por caducar'],['proyectos','Proyectos '+B.anio],['votaciones','Votaciones'],['senadores','Senadores'],['comisiones','Comisiones'],['metodo','Cómo lo hacemos']];
+var SECCIONES=[['resumen','Resumen'],['ods','Órdenes del día'],['preferencias','Preferencias'],['aprobados','Aprobados'],['caducar','Por caducar'],['proyectos','Proyectos '+B.anio],['votaciones','Votaciones'],['senadores','Senadores'],['comisiones','Comisiones'],['metodo','Cómo lo hacemos']];
 var hechos={};
-var render={resumen:renderResumen,ods:renderODs,preferencias:renderPreferencias,caducar:renderCaducar,proyectos:renderProyectos,votaciones:renderVotaciones,senadores:renderSenadores,comisiones:renderComisiones,metodo:renderMetodo};
+var render={resumen:renderResumen,ods:renderODs,preferencias:renderPreferencias,aprobados:renderAprobados,caducar:renderCaducar,proyectos:renderProyectos,votaciones:renderVotaciones,senadores:renderSenadores,comisiones:renderComisiones,metodo:renderMetodo};
 function mostrar(id){
   SECCIONES.forEach(function(s){
     var activo=s[0]===id;
