@@ -57,8 +57,8 @@ p{margin:0 0 10px}
 /* Barras horizontales */
 .hb{display:grid;grid-template-columns:minmax(110px,190px) 1fr 40px;gap:10px;align-items:center;margin:7px 0;font-size:13px}
 .hb .pista{background:var(--bg);border-radius:4px;height:14px;overflow:hidden}
-.hb .barra{background:var(--azul2);height:100%;border-radius:4px}
-.hb .barra.alt{background:var(--azul)}
+.hb .barra{background:var(--bloque,var(--azul2));box-shadow:inset 0 0 0 1px rgba(0,0,0,.22);height:100%;border-radius:4px}
+.hb .barra.alt{background:var(--bloque,var(--azul))}
 .hb .v{font-weight:700;color:var(--azul);text-align:right}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0}
 .chip{display:inline-block;font-size:12px;padding:3px 10px;border-radius:999px;background:var(--azul3);color:var(--azul);font-weight:600}
@@ -192,6 +192,7 @@ function barrasH(items,max,alt){
   }).join('');
 }
 
+function colorBloque(){return /^#[0-9A-Fa-f]{6}$/.test(B.color||'')?B.color:'#2E75B6';}
 function graficoMensual(meses){
   var W=600,H=170,pl=8,pr=8,pt=22,pb=26;
   var max=Math.max.apply(null,meses.map(function(m){return m.n}).concat([1]));
@@ -200,7 +201,7 @@ function graficoMensual(meses){
   meses.forEach(function(m,i){
     var h=Math.round((H-pt-pb)*m.n/max);
     var x=pl+i*bw+bw*0.15, w=bw*0.7, y=H-pb-h;
-    s+='<rect x="'+x.toFixed(1)+'" y="'+y+'" width="'+w.toFixed(1)+'" height="'+h+'" rx="3" fill="#2E75B6"/>';
+    s+='<rect x="'+x.toFixed(1)+'" y="'+y+'" width="'+w.toFixed(1)+'" height="'+h+'" rx="3" fill="'+colorBloque()+'" stroke="rgba(0,0,0,.28)" stroke-width="1"/>';
     s+='<text class="val" x="'+(x+w/2).toFixed(1)+'" y="'+(y-5)+'" text-anchor="middle">'+m.n+'</text>';
     s+='<text x="'+(x+w/2).toFixed(1)+'" y="'+(H-8)+'" text-anchor="middle">'+MESES[m.mes-1]+'</text>';
   });
