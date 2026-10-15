@@ -64,17 +64,16 @@ jobs:
 
       - name: Commit y push si hay cambios
         run: |
+          fallo() { echo "::error::$1: $(echo "$2" | tr '\n' ' ' | cut -c1-900)"; exit 1; }
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           # 'source/' es el checkout de datos: no se publica ni se commitea.
-          git add -A -- . ':!source'
+          r=$(git add -A 2>&1) || fallo "git add" "$r"
+          git reset -q -- source 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "Sin cambios; nada que commitear."
             exit 0
           fi
-          git commit -m "Actualización automática $(date -u '+%Y-%m-%d %H:%M UTC')"
-          # Los errores se publican como anotaciones para poder verlos sin abrir el log.
-          if ! salida=$(git pull --rebase origin "${GITHUB_REF_NAME}" 2>&1 && git push origin "HEAD:${GITHUB_REF_NAME}" 2>&1); then
-            echo "::error::No se pudo guardar: $(echo "$salida" | tr '\n' ' ' | cut -c1-900)"
-            exit 1
-          fi
+          r=$(git commit -m "Actualización automática $(date -u '+%Y-%m-%d %H:%M UTC')" 2>&1) || fallo "git commit" "$r"
+          r=$(git pull --rebase origin "${GITHUB_REF_NAME}" 2>&1) || fallo "git pull" "$r"
+          r=$(git push origin "HEAD:${GITHUB_REF_NAME}" 2>&1) || fallo "git push" "$r"
