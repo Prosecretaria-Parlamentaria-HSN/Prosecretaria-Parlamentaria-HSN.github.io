@@ -1,0 +1,3164 @@
+{
+ "anio": 2026,
+ "actualizado": "15-10-2026",
+ "fuente": "https://www.senado.gob.ar/votaciones/actas",
+ "actas": [
+  {
+   "id": 2829,
+   "fecha": "24-09-2026",
+   "nro_acta": "2",
+   "titulo": "Modificación de la Carta Orgánica del Banco Central.",
+   "tipo": "EN GENERAL",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 367,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 1,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 0,
+     "n": 1,
+     "b": 0,
+     "x": 1
+    },
+    "FRENTE PRO": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 0,
+     "n": 19,
+     "b": 0,
+     "x": 2
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 21,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "LA NEUQUINIDAD": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 10,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    }
+   }
+  },
+  {
+   "id": 2846,
+   "fecha": "24-09-2026",
+   "nro_acta": "21",
+   "titulo": "Modificación del Régimen de Zonas Frías.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 402,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 1,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 2
+    },
+    "FRENTE PRO": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 2
+    },
+    "JUSTICIALISTA": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 21
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 21,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "LA NEUQUINIDAD": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 4,
+     "n": 6,
+     "b": 0,
+     "x": 0
+    }
+   }
+  },
+  {
+   "id": 2806,
+   "fecha": "17-09-2026",
+   "nro_acta": "2",
+   "titulo": "Acuerdo para designaciones en el Poder Judicial.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 338,
+     "anio": 2026
+    },
+    {
+     "nro": 353,
+     "anio": 2026
+    },
+    {
+     "nro": 354,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 3,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 19,
+     "n": 0,
+     "b": 0,
+     "x": 2
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 20,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "LA NEUQUINIDAD": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 7,
+     "n": 0,
+     "b": 0,
+     "x": 3
+    }
+   }
+  },
+  {
+   "id": 2807,
+   "fecha": "17-09-2026",
+   "nro_acta": "3",
+   "titulo": "Traspaso de la Justicia Nacional a la Ciudad Autónoma de Buenos Aires.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 360,
+     "anio": 2026
+    },
+    {
+     "nro": 361,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 2,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 0,
+     "n": 17,
+     "b": 0,
+     "x": 4
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 20,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "LA NEUQUINIDAD": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 9,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    }
+   }
+  },
+  {
+   "id": 2808,
+   "fecha": "17-09-2026",
+   "nro_acta": "4",
+   "titulo": "Inocencia Fiscal II.",
+   "tipo": "EN GENERAL",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 372,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 1,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 0,
+     "n": 19,
+     "b": 0,
+     "x": 2
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 20,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "LA NEUQUINIDAD": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 9,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    }
+   }
+  },
+  {
+   "id": 2813,
+   "fecha": "17-09-2026",
+   "nro_acta": "9",
+   "titulo": "Designación de cónsules y vicecónsules honorarios.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 340,
+     "anio": 2026
+    },
+    {
+     "nro": 341,
+     "anio": 2026
+    },
+    {
+     "nro": 342,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 12,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 17,
+     "n": 0,
+     "b": 0,
+     "x": 4
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 20,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "LA NEUQUINIDAD": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 8,
+     "n": 0,
+     "b": 0,
+     "x": 2
+    }
+   }
+  },
+  {
+   "id": 2814,
+   "fecha": "17-09-2026",
+   "nro_acta": "10",
+   "titulo": "Reconocimiento a Héroes Nacionales.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 337,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 1,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "JUSTICIALISTA": {
+     "a": 18,
+     "n": 0,
+     "b": 0,
+     "x": 3
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 16,
+     "n": 0,
+     "b": 0,
+     "x": 5
+    },
+    "LA NEUQUINIDAD": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 0,
+     "n": 1,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 7,
+     "n": 0,
+     "b": 0,
+     "x": 3
+    }
+   }
+  },
+  {
+   "id": 2815,
+   "fecha": "17-09-2026",
+   "nro_acta": "11",
+   "titulo": "Declaración de Héroe Nacional al Brigadier Estanislao López.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 363,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 1,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 18,
+     "n": 0,
+     "b": 0,
+     "x": 3
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 16,
+     "n": 0,
+     "b": 0,
+     "x": 5
+    },
+    "LA NEUQUINIDAD": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 0,
+     "n": 1,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 7,
+     "n": 0,
+     "b": 0,
+     "x": 3
+    }
+   }
+  },
+  {
+   "id": 2816,
+   "fecha": "17-09-2026",
+   "nro_acta": "12",
+   "titulo": "Institución de Día Nacional en Honor al Almirante Guillermo Brown.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 365,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 1,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 18,
+     "n": 0,
+     "b": 0,
+     "x": 3
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 17,
+     "n": 0,
+     "b": 0,
+     "x": 4
+    },
+    "LA NEUQUINIDAD": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 7,
+     "n": 0,
+     "b": 0,
+     "x": 3
+    }
+   }
+  },
+  {
+   "id": 2817,
+   "fecha": "17-09-2026",
+   "nro_acta": "13",
+   "titulo": "Creación del Parque Interjurisdiccional Marino Monte León",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 339,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 1,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 18,
+     "n": 0,
+     "b": 0,
+     "x": 3
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 16,
+     "n": 0,
+     "b": 0,
+     "x": 5
+    },
+    "LA NEUQUINIDAD": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 7,
+     "n": 0,
+     "b": 0,
+     "x": 3
+    }
+   }
+  },
+  {
+   "id": 2819,
+   "fecha": "17-09-2026",
+   "nro_acta": "15",
+   "titulo": "Marco Regulatorio de Biocombustibles.",
+   "tipo": "EN GENERAL",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 362,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 1,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 1,
+     "n": 18,
+     "b": 0,
+     "x": 2
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 19,
+     "n": 0,
+     "b": 0,
+     "x": 2
+    },
+    "LA NEUQUINIDAD": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 7,
+     "n": 1,
+     "b": 0,
+     "x": 2
+    }
+   }
+  },
+  {
+   "id": 2801,
+   "fecha": "27-08-2026",
+   "nro_acta": "1",
+   "titulo": "Acuerdo para designaciones en el Poder Judicial y el Ministerio Público Fiscal.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 243,
+     "anio": 2026
+    },
+    {
+     "nro": 244,
+     "anio": 2026
+    },
+    {
+     "nro": 245,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 62,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 18,
+     "n": 0,
+     "b": 0,
+     "x": 3
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 20,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "LA NEUQUINIDAD": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 9,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    }
+   }
+  },
+  {
+   "id": 2802,
+   "fecha": "27-08-2026",
+   "nro_acta": "2",
+   "titulo": "Acuerdo para designar Vocal de la Cámara Nacional de Apelaciones en lo Criminal y Correccional Federal de la Capital Federal, Sala I, a Pablo Daniel Bertuzzi.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 292,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 1,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 0,
+     "n": 19,
+     "b": 0,
+     "x": 2
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 20,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "LA NEUQUINIDAD": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 9,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    }
+   }
+  },
+  {
+   "id": 2803,
+   "fecha": "27-08-2026",
+   "nro_acta": "3",
+   "titulo": "Tratado con Ucrania sobre Traslado de Personas Sentenciadas. Enmienda al Protocolo de Montevideo sobre el Comercio de Servicios del Mercosur. Tratado de Extradición con la República de Chile. Tratado de Medellín. Acuerdo de Libre Comercio entre los Estados de la Asociación Europea de Libre Comercio (AELC) y el Mercosur.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 114,
+     "anio": 2026
+    },
+    {
+     "nro": 115,
+     "anio": 2026
+    },
+    {
+     "nro": 120,
+     "anio": 2026
+    },
+    {
+     "nro": 121,
+     "anio": 2026
+    },
+    {
+     "nro": 257,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 5,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 19,
+     "n": 0,
+     "b": 0,
+     "x": 2
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 18,
+     "n": 0,
+     "b": 0,
+     "x": 3
+    },
+    "LA NEUQUINIDAD": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 9,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    }
+   }
+  },
+  {
+   "id": 2804,
+   "fecha": "27-08-2026",
+   "nro_acta": "4",
+   "titulo": "Declaración como Fiesta Nacional al Festival del Membrillo, Departamento Ambato, provincia de Catamarca. Declaración de Fiesta Nacional del Mate y la Amistad, a realizarse en Virasoro, provincia de Corrientes. Declaración a Bernabé Araóz como Héroe Nacional.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 136,
+     "anio": 2026
+    },
+    {
+     "nro": 139,
+     "anio": 2026
+    },
+    {
+     "nro": 275,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 3,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 19,
+     "n": 0,
+     "b": 0,
+     "x": 2
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 18,
+     "n": 0,
+     "b": 0,
+     "x": 3
+    },
+    "LA NEUQUINIDAD": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 9,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    }
+   }
+  },
+  {
+   "id": 2796,
+   "fecha": "06-08-2026",
+   "nro_acta": "8",
+   "titulo": "Inviolabilidad de la Propiedad Privada.",
+   "tipo": "EN GENERAL",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 104,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 1,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 0,
+     "n": 3,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "INDEPENDENCIA": {
+     "a": 0,
+     "n": 1,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 0,
+     "n": 20,
+     "b": 0,
+     "x": 1
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 21,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "LA NEUQUINIDAD": {
+     "a": 0,
+     "n": 1,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 0,
+     "n": 1,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 1,
+     "n": 1,
+     "b": 0,
+     "x": 0
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 9,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    }
+   }
+  },
+  {
+   "id": 2789,
+   "fecha": "16-07-2026",
+   "nro_acta": "1",
+   "titulo": "Acuerdos para el ascenso de diplomáticos pertenecientes al Ministerio de Relaciones Exteriores, Comercio Internacional y Culto.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 22,
+     "anio": 2026
+    },
+    {
+     "nro": 23,
+     "anio": 2026
+    },
+    {
+     "nro": 24,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 6,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 20,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 21,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "LA NEUQUINIDAD": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 9,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    }
+   }
+  },
+  {
+   "id": 2790,
+   "fecha": "16-07-2026",
+   "nro_acta": "2",
+   "titulo": "Acuerdo para designaciones en el Poder Judicial, Ministerio Público Fiscal y Ministerio Público de la Defensa de la Nación.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 123,
+     "anio": 2026
+    },
+    {
+     "nro": 125,
+     "anio": 2026
+    },
+    {
+     "nro": 126,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 27,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 20,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 21,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "LA NEUQUINIDAD": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 9,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    }
+   }
+  },
+  {
+   "id": 2791,
+   "fecha": "16-07-2026",
+   "nro_acta": "3",
+   "titulo": "Acuerdo para posibilitar un nuevo nombramiento del Vocal de la Cámara Nacional de Apelaciones del Trabajo de la Capital Federal, Sala VIII, al Dr. Víctor Arturo Pesino.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 124,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 1,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 0,
+     "n": 3,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 0,
+     "n": 20,
+     "b": 0,
+     "x": 1
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 21,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "LA NEUQUINIDAD": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 0,
+     "n": 1,
+     "b": 0,
+     "x": 1
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 7,
+     "n": 2,
+     "b": 0,
+     "x": 1
+    }
+   }
+  },
+  {
+   "id": 2792,
+   "fecha": "16-07-2026",
+   "nro_acta": "4",
+   "titulo": "Acuerdo para designar Vocal de la Cámara Nacional de Apelaciones en lo Comercial de la Capital Federal, Sala C, al Dr. Javier Jorge Cosentino.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 216,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 1,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 1,
+     "n": 19,
+     "b": 0,
+     "x": 1
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 21,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "LA NEUQUINIDAD": {
+     "a": 0,
+     "n": 1,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 9,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    }
+   }
+  },
+  {
+   "id": 2793,
+   "fecha": "16-07-2026",
+   "nro_acta": "5",
+   "titulo": "Declaración de la ciudad de San Miguel de Tucumán como capital simbólica de la República Argentina, el 9 de julio de cada año.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 152,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 1,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 20,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 21,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "LA NEUQUINIDAD": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 2
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 10,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    }
+   }
+  },
+  {
+   "id": 2764,
+   "fecha": "04-06-2026",
+   "nro_acta": "2",
+   "titulo": "Acuerdo para designaciones en el Poder Judicial, Ministerio Público Fiscal y Ministerio Público de la Defensa de la Nación.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 29,
+     "anio": 2026
+    },
+    {
+     "nro": 30,
+     "anio": 2026
+    },
+    {
+     "nro": 31,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 13,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 17,
+     "n": 0,
+     "b": 0,
+     "x": 4
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 20,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "LA NEUQUINIDAD": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 10,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    }
+   }
+  },
+  {
+   "id": 2765,
+   "fecha": "04-06-2026",
+   "nro_acta": "3",
+   "titulo": "Acuerdo para designar a la Jueza de Cámara del Tribunal Oral en lo Criminal Federal N°3 de La Plata María Julia Sosa.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 42,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 1,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 1,
+     "n": 16,
+     "b": 0,
+     "x": 4
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 20,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "LA NEUQUINIDAD": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 10,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    }
+   }
+  },
+  {
+   "id": 2766,
+   "fecha": "04-06-2026",
+   "nro_acta": "4",
+   "titulo": "Acuerdo para designaciones en el Poder Judicial, Ministerio Público Fiscal y Ministerio Público de la Defensa de la Nación.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 43,
+     "anio": 2026
+    },
+    {
+     "nro": 44,
+     "anio": 2026
+    },
+    {
+     "nro": 45,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 47,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 17,
+     "n": 0,
+     "b": 0,
+     "x": 4
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 20,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "LA NEUQUINIDAD": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 10,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    }
+   }
+  },
+  {
+   "id": 2767,
+   "fecha": "04-06-2026",
+   "nro_acta": "5",
+   "titulo": "Acuerdo para designar a la Juez del Tribunal Federal de Juicio de Santa Fe a Emilio Rosatti.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 90,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 1,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 1,
+     "n": 16,
+     "b": 0,
+     "x": 4
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 20,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "LA NEUQUINIDAD": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 10,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    }
+   }
+  },
+  {
+   "id": 2768,
+   "fecha": "04-06-2026",
+   "nro_acta": "6",
+   "titulo": "Acuerdo para designaciones en el Poder Judicial, Ministerio Público Fiscal y Ministerio Público de la Defensa de la Nación.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 91,
+     "anio": 2026
+    },
+    {
+     "nro": 92,
+     "anio": 2026
+    },
+    {
+     "nro": 93,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 11,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 17,
+     "n": 0,
+     "b": 0,
+     "x": 4
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 20,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "LA NEUQUINIDAD": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 10,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    }
+   }
+  },
+  {
+   "id": 2769,
+   "fecha": "04-06-2026",
+   "nro_acta": "7",
+   "titulo": "Acuerdo para designar a la Jueza de Cámara del Tribunal Oral en lo Criminal Federal N°3 de La Plata a María Verónica Michelli.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 112,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 1,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 17,
+     "n": 0,
+     "b": 0,
+     "x": 4
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 1,
+     "n": 18,
+     "b": 1,
+     "x": 1
+    },
+    "LA NEUQUINIDAD": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 9,
+     "n": 0,
+     "b": 1,
+     "x": 0
+    }
+   }
+  },
+  {
+   "id": 2770,
+   "fecha": "04-06-2026",
+   "nro_acta": "8",
+   "titulo": "Acuerdo de conciliación con acreedores de títulos de deuda.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 102,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 1,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 0,
+     "n": 16,
+     "b": 0,
+     "x": 5
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 20,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "LA NEUQUINIDAD": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 0,
+     "n": 2,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 9,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    }
+   }
+  },
+  {
+   "id": 2771,
+   "fecha": "04-06-2026",
+   "nro_acta": "9",
+   "titulo": "Creación de una nueva sala en la Cámara Federal de Apelaciones de Mar del Plata. Reorganización y ampliación de la Cámara Federal de Apelaciones de Tucumán.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 103,
+     "anio": 2026
+    },
+    {
+     "nro": 105,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 2,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 2
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 16,
+     "n": 0,
+     "b": 0,
+     "x": 5
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 20,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "LA NEUQUINIDAD": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 9,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    }
+   }
+  },
+  {
+   "id": 2691,
+   "fecha": "14-05-2026",
+   "nro_acta": "4",
+   "titulo": "Prórroga por cinco años del mandato de Carlos Alberto Mahiques como vocal de la Cámara Federal de Casación Penal.",
+   "tipo": "EN GENERAL Y EN PARTICULAR",
+   "resultado": "AFIRMATIVO",
+   "mayoria": "SIMPLE",
+   "ods": [
+    {
+     "nro": 17,
+     "anio": 2026
+    }
+   ],
+   "n_ods": 1,
+   "por_bloque": {
+    "CONVICCIÓN FEDERAL": {
+     "a": 3,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "DESPIERTA CHUBUT": {
+     "a": 0,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "FRENTE CÍVICO POR SANTIAGO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "FRENTE PRO": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 1
+    },
+    "INDEPENDENCIA": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIA SOCIAL FEDERAL": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "JUSTICIALISTA": {
+     "a": 9,
+     "n": 11,
+     "b": 0,
+     "x": 1
+    },
+    "LA LIBERTAD AVANZA": {
+     "a": 21,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "LA NEUQUINIDAD": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVERE SANTA CRUZ": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "MOVIMIENTO POR MISIONES": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PRIMERO LOS SALTEÑOS": {
+     "a": 1,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "PROVINCIAS UNIDAS": {
+     "a": 2,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    },
+    "UCR - UNIÓN CÍVICA RADICAL": {
+     "a": 10,
+     "n": 0,
+     "b": 0,
+     "x": 0
+    }
+   }
+  }
+ ],
+ "total_generales": 46
+}
