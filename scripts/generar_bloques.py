@@ -52,6 +52,25 @@ GRUPOS_TIPO = [
 # Archivo de votaciones (lo escribe scraper_votaciones.py).
 VOTACIONES = os.environ.get("HSN_VOTACIONES", os.path.join(ROOT, "data", "votaciones.json"))
 
+# Colores de cada bloque, tomados del plano del recinto 2026 (Dirección General de
+# Comunicación Institucional, "Referencias de bloques"). Clave: norm_bloque().
+COLORES_BLOQUE = {
+    "CONVICCION FEDERAL": "#3D85C5",
+    "DESPIERTA CHUBUT": "#851F0D",
+    "FRENTE CIVICO SANTIAGO": "#019ADC",
+    "FRENTE PRO": "#FFFF00",
+    "INDEPENDENCIA": "#94C37D",
+    "JUSTICIALISTA": "#019ADC",
+    "JUSTICIA SOCIAL FEDERAL": "#C9DBF9",
+    "LA LIBERTAD AVANZA": "#B737FF",
+    "LA NEUQUINIDAD": "#46BDC6",
+    "MOVERE SANTA CRUZ": "#DD7D6B",
+    "MOVIMIENTO MISIONES": "#41AA00",
+    "PRIMERO LOS SALTENOS": "#D4A6BD",
+    "PROVINCIAS UNIDAS": "#FF9900",
+    "UCR UNION CIVICA RADICAL": "#E30613",
+}
+
 MINUSCULAS = {"de", "del", "la", "las", "los", "el", "y", "por", "en", "a", "e", "o"}
 SIGLAS = {"PRO", "UCR", "PJ", "PE", "HSN"}
 
@@ -560,6 +579,9 @@ def construir_por_caducar(ctx, bloque):
             continue
         if ctx["bloque_de"](p) != bloque:
             continue
+        # Con media sanción (comunicado a Diputados) tienen un año más de vigencia.
+        if "badge_diputados" in p:
+            continue
         out.append(resumen_proyecto(ctx, p, bloque))
     # primero los que tienen algún avance registrado; luego, más nuevos primero
     def clave(x):
@@ -684,6 +706,7 @@ def construir_bloque(ctx, bloque, hoy):
     datos = {
         "bloque": titulo(bloque),
         "slug": slug_de(titulo(bloque)),
+        "color": COLORES_BLOQUE.get(norm_bloque(bloque), "#1B5EA2"),
         "anio": ANIO_ACTUAL,
         "datos_al": hoy.strftime("%d-%m-%Y %H:%M"),
         "senadores": senadores_out,

@@ -20,7 +20,7 @@ a{color:var(--azul2)}
 .hdr .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:10px;padding-bottom:10px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--azul)}
 .hdr .der{font-weight:700;text-align:right}
 .portada{padding:28px 0 12px}
-.portada .bloque-titulo{border-left:6px solid var(--azul);padding:2px 0 2px 16px}
+.portada .bloque-titulo{border-left:6px solid var(--bloque,var(--azul));padding:2px 0 2px 16px}
 .etq{font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--azul2)}
 h1{margin:2px 0 4px;font-size:30px;line-height:1.15;color:var(--azul);font-weight:700}
 .sub{font-size:13px}
@@ -50,6 +50,7 @@ p{margin:0 0 10px}
 .g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
 .g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
 .card{background:var(--blanco);border:1px solid var(--azul3);border-radius:8px;padding:14px 16px}
+.kpi-card{border-top:4px solid var(--bloque,var(--azul))}
 .kpi-v{font-size:30px;font-weight:700;color:var(--azul);line-height:1.1}
 .kpi-l{font-size:12px;margin-top:4px}
 
@@ -98,10 +99,10 @@ td.num,th.num{text-align:right}
 /* Votos por bloque */
 .vbar{display:flex;height:14px;border-radius:4px;overflow:hidden;background:var(--bg);margin:8px 0 4px}
 .vbar span{display:block;height:100%}
-.vbar .a{background:var(--azul2)}.vbar .n{background:#4A4A4A}.vbar .b{background:#9DB9D6}
+.vbar .a{background:#2E9E5B}.vbar .n{background:#D64545}.vbar .b{background:#E8B923}
 .vleyenda{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:12px}
 .vleyenda i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
-.vleyenda .a i{background:var(--azul2)}.vleyenda .n i{background:#4A4A4A}.vleyenda .b i{background:#9DB9D6}
+.vleyenda .a i{background:#2E9E5B}.vleyenda .n i{background:#D64545}.vleyenda .b i{background:#E8B923}
 .vleyenda b{font-weight:700;color:var(--azul)}
 .cols{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
 .mas-link{margin:12px 0 0;font-size:13px}
@@ -178,7 +179,7 @@ var TIPOS_PRINCIPALES=['PL','PR','PD','PC'];
 var TAM=20;
 
 /* ── Piezas ─────────────────────────────────────────────── */
-function kpi(v,l){return '<div class="card"><div class="kpi-v">'+num(v)+'</div><div class="kpi-l">'+esc(l)+'</div></div>';}
+function kpi(v,l){return '<div class="card kpi-card"><div class="kpi-v">'+num(v)+'</div><div class="kpi-l">'+esc(l)+'</div></div>';}
 function chips(lista,suave){return lista.length?'<div class="chips">'+lista.map(function(c){return '<span class="chip'+(suave?' suave':'')+'">'+esc(c)+'</span>'}).join('')+'</div>':'';}
 function vacio(txt){return '<div class="vacio card">'+esc(txt)+'</div>';}
 function enlace(u,txt){return url(u)?'<div class="meta" style="margin-top:8px"><a href="'+esc(url(u))+'" target="_blank" rel="noopener">'+esc(txt)+'</a></div>':'';}
@@ -319,7 +320,7 @@ function renderResumen(){
     +kpi(B.total,'Proyectos presentados en '+B.anio)
     +kpi(m.con_movimiento,'Proyectos de '+B.anio+' con movimiento')
     +kpi(B.ods.length,plural(B.ods.length,'Orden del día con proyectos del bloque','Órdenes del día con proyectos del bloque'))
-    +kpi(B.preferencias.length,plural(B.preferencias.length,'Preferencia en sesiones de '+B.anio,'Preferencias en sesiones de '+B.anio))
+    +kpi(B.preferencias.length,plural(B.preferencias.length,'Preferencia vigente','Preferencias vigentes'))
     +kpi(B.aprobados.length,plural(B.aprobados.length,'Proyecto aprobado por el Senado en '+B.anio,'Proyectos aprobados por el Senado en '+B.anio))
     +kpi(B.por_caducar.length,plural(B.por_caducar.length,'Proyecto de ley de '+(B.anio-1)+' por caducar','Proyectos de ley de '+(B.anio-1)+' por caducar'))
     +'</div>';
@@ -386,7 +387,7 @@ function renderAprobados(){
 }
 function renderCaducar(){
   listaPaginada({panel:'caducar',titulo:'Proyectos de ley próximos a caducar',
-    intro:'Proyectos de ley presentados en '+(B.anio-1)+' por senadores y senadoras actuales del bloque que no fueron sancionados ni archivados. Los proyectos de ley de '+(B.anio-1)+' caducan.',
+    intro:'Proyectos de ley presentados en '+(B.anio-1)+' por senadores y senadoras actuales del bloque que no fueron sancionados ni archivados. Los proyectos de ley de '+(B.anio-1)+' caducan, salvo los que ya tienen media sanción (enviados a Diputados), que tienen un año más de vigencia y por eso no se incluyen.',
     items:B.por_caducar,tarjeta:tarjetaProyecto,buscador:true,
     texto:function(p){return p.id+' '+p.extracto+' '+p.autores.join(' ')+' '+p.comisiones.join(' ');},
     uno:'proyecto de ley',varios:'proyectos de ley',vacio:'No hay proyectos de ley de '+(B.anio-1)+' de senadores y senadoras actuales del bloque pendientes de trámite.',
@@ -478,6 +479,7 @@ function mostrar(id){
   window.scrollTo({top:0});
 }
 document.documentElement.setAttribute('data-bloque',B.slug);
+if(/^#[0-9A-Fa-f]{6}$/.test(B.color||''))document.documentElement.style.setProperty('--bloque',B.color);
 $('h-bloque').textContent=B.bloque;
 $('h-sub').textContent='Senado de la Nación Argentina · Datos al '+B.datos_al;
 $('f-datos').textContent='Datos al '+B.datos_al;
