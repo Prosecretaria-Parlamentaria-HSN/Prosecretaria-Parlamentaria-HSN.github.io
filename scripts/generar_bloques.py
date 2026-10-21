@@ -71,6 +71,11 @@ COLORES_BLOQUE = {
     "UCR UNION CIVICA RADICAL": "#E30613",
 }
 
+# La aprobación por el Senado se toma del Boletín de Novedades (data/sanciones.json, que se carga
+# a mano). Si todavía no incluye una sesión, se usa el código AP de la planilla de trazabilidad
+# (`sanciones_trazabilidad`). Poner en False para volver a depender sólo del Boletín.
+USAR_AP_TRAZABILIDAD = True
+
 MINUSCULAS = {"de", "del", "la", "las", "los", "el", "y", "por", "en", "a", "e", "o"}
 SIGLAS = {"PRO", "UCR", "PJ", "PE", "HSN"}
 
@@ -185,8 +190,63 @@ def norm_bloque(s):
 
 
 def anio_de(p):
-    f = parse_fecha(p.get("fecha", ""))
-    return f[0] if f else None
+    """Año de un proyecto = el de su número de expediente (campo `anio`), nunca el de la
+    fecha de ingreso: S-2126/25 ingresó en enero de 2026 pero es un proyecto de 2025
+    (y, si es de ley, entra en 'Por caducar'). Si no hay `anio`, se usa el de la fecha."""
+    try:
+        return int(p.get("anio"))
+    except (TypeError, ValueError):
+        f = parse_fecha(p.get("fecha", ""))
+        return f[0] if f else None
+
+
+def sin_repetir(items):
+    out = []
+    for x in items:
+        if x and x not in out:
+            out.append(x)
+    return out
+
+
+def autores_de(p):
+    """Autores a mostrar y a contar: los nombrados en el prefijo de la carátula
+    (`autores_caratula`); si el proyecto no los tiene, los de siempre (`autores`)."""
+    return p.get("autores_caratula") or p.get("autores") or []
+
+
+def bloques_de_proyecto(p, senador_de):
+    """Bloques a los que se atribuye un proyecto del Senado. REGLA (vale para los 14 bloques):
+
+    * La autoría sale del prefijo de la carátula, no del orden de la columna AUTOR: un
+      proyecto cuenta para cada senador nombrado ("CAPITANICH Y BAHL" -> los dos) y para el
+      bloque de cada uno, una sola vez por bloque. Con "Y OTROS" cuentan sólo los nombrados;
+      "VARIOS SENADORES" queda como estaba. El sistema de datos guarda esa autoría en
+      `autores_caratula` / `bloques_caratula` (scripts/autoria_caratula.py).
+    * Proyectos del año en curso: el bloque registrado al presentarlos (`bloques_caratula`).
+    * Años anteriores (Por caducar, aprobados, órdenes del día): el bloque ACTUAL de cada
+      autor nombrado si sigue siendo senador/a vigente; si ya no lo es, ese autor no cuenta.
+    * Si el proyecto no tiene esos campos, comportamiento anterior: el bloque de su primer
+      autor (registrado al presentar en el año en curso; actual en años anteriores).
+    `senador_de(autor)` devuelve (nombre, datos) del senador vigente o None."""
+    if p.get("origen") != "S":
+        return []
+    if anio_de(p) == ANIO_ACTUAL:
+        bc = [b for b in (p.get("bloques_caratula") or []) if b and b != "Sin datos"]
+        if bc:
+            return sin_repetir(bc)
+        return [p["bloques"][0]] if p.get("bloques") else []
+    autores = p.get("autores_caratula") or (p.get("autores") or [])[:1]
+    out = []
+    for a in autores:
+        s = senador_de(a)
+        if s:
+            out.append(s[1].get("bloque"))
+    return sin_repetir(out)
+
+
+def pertenece_a_bloque(p, bloque, senador_de):
+    objetivo = norm_bloque(bloque)
+    return any(norm_bloque(b) == objetivo for b in bloques_de_proyecto(p, senador_de))
 
 
 def cargar_votaciones():
@@ -298,18 +358,18 @@ def construir_contexto(gw):
         except (TypeError, ValueError):
             continue
 
-    def bloque_de(p):
-        """Bloque al que se atribuye un proyecto del Senado.
-        2026: el bloque registrado al presentarlo. Años anteriores: el bloque
-        actual de su primer autor (si sigue siendo senador/a)."""
-        if p.get("origen") != "S":
-            return None
-        if anio_de(p) == ANIO_ACTUAL:
-            return p["bloques"][0] if p.get("bloques") else None
-        if p.get("autores"):
-            s = senador_de(p["autores"][0])
-            return s[1].get("bloque") if s else None
-        return None
+    def pertenece(p, bloque):
+        """¿El proyecto se atribuye a ese bloque? (ver bloques_de_proyecto)"""
+        return pertenece_a_bloque(p, bloque, senador_de)
+
+    # Aprobados por el Senado a partir de un orden del día (Boletín de Novedades con OD).
+    aprobados_con_od = set()
+    for sn in sanciones:
+        if (sn.get("seccion") in ("ley", "acuerdo", "decreto_res_com_dec") and sn.get("od_nro")
+                and (sn.get("resultado") or "").upper() in ("APROBADO", "APROBADA")):
+            k = clave_exp(sn.get("expediente"))
+            if k:
+                aprobados_con_od.add(k)
 
     # Preferencias aprobadas en sesiones del año (Boletín de Novedades).
     preferencias = [s for s in sanciones if s.get("seccion") == "preferencia"
@@ -342,7 +402,9 @@ def construir_contexto(gw):
         "fonts": fonts,
         "senador_de": senador_de,
         "senador_por_apellido": senador_por_apellido,
-        "bloque_de": bloque_de,
+        "pertenece": pertenece,
+        "aprobados_con_od": aprobados_con_od,
+        "rastrear": {},
         "preferencias": preferencias,
         "pref_idx": pref_idx,
         "ods_am": ods_am,
@@ -378,17 +440,45 @@ def clave_de(p):
     return (p.get("origen"), p.get("nro"), p.get("anio"))
 
 
+def aprobacion_de(p):
+    """{'fecha': 'dd/mm/aaaa', 'ley': nro|None} si el Senado aprobó el proyecto, o None.
+    Prioriza el Boletín de Novedades; complementa con el AP de la planilla de trazabilidad."""
+    b = p.get("badge_sancionado")
+    if b:
+        return {"fecha": b.get("fecha"), "ley": b.get("ley")}
+    if USAR_AP_TRAZABILIDAD:
+        aps = [x["fecha"] for x in (p.get("sanciones_trazabilidad") or []) if x.get("codigo") == "AP"]
+        if aps:
+            return {"fecha": max(aps, key=lambda f: parse_fecha(f) or (0, 0, 0)), "ley": None}
+    return None
+
+
+def con_media_sancion(p):
+    """Comunicado a Diputados (Boletín) o aprobado por el Senado según la trazabilidad."""
+    return "badge_diputados" in p or (aprobacion_de(p) is not None and p.get("tipo") == "PL")
+
+
+def reunion_inferida(ctx, p):
+    """Un proyecto con orden del día tuvo reunión de comisión (el dictamen sale de ahí)
+    aunque la agenda no la registre. Se infiere de: la Ayuda Memoria, la orden del día o la
+    fecha de dictamen de la planilla de trazabilidad (`od_trazabilidad`, `fecha_dictamen`) o
+    haber sido aprobado por el Senado a partir de una orden del día. No inventa fecha."""
+    k = clave_de(p)
+    return bool(ctx["od_por_exp"].get(k) or p.get("od_trazabilidad") or p.get("fecha_dictamen")
+                or k in ctx["aprobados_con_od"])
+
+
 def flags_de(ctx, p):
     reuniones = reuniones_de(ctx, p)
     ods = ctx["od_por_exp"].get(clave_de(p), [])
     prefs = ctx["pref_idx"].get(clave_de(p), [])
     return {
-        "reunion": bool(reuniones),
+        "reunion": bool(reuniones) or reunion_inferida(ctx, p),
         "fecha_reunion": fecha_visible(reuniones[0]["fecha"]) if reuniones else None,
         # Orden del día: se toma de la Ayuda Memoria
         "od": ", ".join(f"{o['nro']}/{o['anio']}" for o in ods) or None,
         "preferencia": bool(prefs),
-        "aprobado": "badge_sancionado" in p,
+        "aprobado": aprobacion_de(p) is not None,
         "ley": bool(p.get("sancionado")),
         "diputados": "badge_diputados" in p,
         "archivado": bool(p.get("archivado")),
@@ -463,6 +553,16 @@ def votacion_de_od(ctx, bloque, nro, anio):
     return {"fecha": a["fecha"], "bloque": votos_del_bloque(a, bloque), "resultado": (a.get("resultado") or "").capitalize()}
 
 
+def otros_bloques(ctx, p, bloque):
+    """Bloques de las demás firmas que se muestran en la ficha."""
+    if not bloque:
+        return []
+    if p.get("bloques_caratula"):
+        propio = norm_bloque(bloque)
+        return [titulo(b) for b in bloques_de_proyecto(p, ctx["senador_de"]) if norm_bloque(b) != propio]
+    return [titulo(b) for b in p.get("bloques", [])[1:] if b != bloque]
+
+
 def resumen_proyecto(ctx, p, bloque=None):
     """Campos comunes a todas las listas de proyectos."""
     giros_p, conocimiento_p = separar_giros(p)
@@ -472,11 +572,11 @@ def resumen_proyecto(ctx, p, bloque=None):
         "tipo": p["tipo"],
         "tipo_label": p.get("tipo_label", p["tipo"]),
         "extracto": limpiar(p.get("extracto", "")),
-        "autores": [nombre_persona(a) for a in p.get("autores", [])],
+        "autores": [nombre_persona(a) for a in autores_de(p)],
         "fecha": fecha_visible(p.get("fecha", "")),
         "comisiones": [visible_com(ctx, c) for c in giros_p],
         "conocimiento": [visible_com(ctx, c) for c in conocimiento_p],
-        "otros_bloques": [titulo(b) for b in p.get("bloques", [])[1:] if bloque and b != bloque],
+        "otros_bloques": otros_bloques(ctx, p, bloque),
         "url": p.get("url"),
         "reunion": f["reunion"],
         "fecha_reunion": f["fecha_reunion"],
@@ -502,9 +602,9 @@ def construir_ods(ctx, bloque):
             p = ctx["proy_idx"].get(k)
             if p is None:
                 sin_proyecto.append(cod)
-            elif ctx["bloque_de"](p) == bloque:
+            elif ctx["pertenece"](p, bloque):
                 exps.append({"id": exp_id(p), "extracto": limpiar(p.get("extracto", "")),
-                             "autores": [nombre_persona(a) for a in p.get("autores", [])], "url": p.get("url")})
+                             "autores": [nombre_persona(a) for a in autores_de(p)], "url": p.get("url")})
         if not exps and sin_proyecto and o.get("autor"):
             # expediente fuera de la base: se usa el apellido del autor que informa la Ayuda Memoria
             primero = re.split(r"\s+y\s+|,", o["autor"])[0].strip()
@@ -530,7 +630,7 @@ def construir_preferencias(ctx, bloque):
     for s in ctx["preferencias"]:
         k = clave_exp(s.get("expediente"))
         p = ctx["proy_idx"].get(k) if k else None
-        es_autor = bool(p and ctx["bloque_de"](p) == bloque)
+        es_autor = bool(p and ctx["pertenece"](p, bloque))
         sol = ctx["senador_por_apellido"](s["solicitante"]) if s.get("solicitante") else None
         pidio = bool(sol and sol[1].get("bloque") == bloque)
         if not (es_autor or pidio):
@@ -540,7 +640,7 @@ def construir_preferencias(ctx, bloque):
             continue
         vistos.add(clave)
         if es_autor and pidio:
-            primer_autor = nombre_persona(p["autores"][0]) if p.get("autores") else None
+            primer_autor = nombre_persona(autores_de(p)[0]) if autores_de(p) else None
             if primer_autor and primer_autor == nombre_persona(sol[0]):
                 motivo = "Solicitada por su autor/a, " + primer_autor
             else:
@@ -553,7 +653,7 @@ def construir_preferencias(ctx, bloque):
         out.append({
             "id": exp_id(p) if p else s.get("expediente"),
             "extracto": limpiar(p.get("extracto", "")) if p else "",
-            "autores": [nombre_persona(a) for a in p.get("autores", [])] if p else [],
+            "autores": [nombre_persona(a) for a in autores_de(p)] if p else [],
             "tipo_label": p.get("tipo_label", "") if p else "",
             "sesion": f"{d}-{m}-{y}",
             "orden": f"{y}{m}{d}",
@@ -569,20 +669,42 @@ def construir_preferencias(ctx, bloque):
     return out
 
 
-def construir_por_caducar(ctx, bloque):
-    """Proyectos de ley de 2025 (origen Senado) de senadores actuales del bloque, sin sanción ni archivo."""
+def registrar_rastreo(ctx, p, bloque):
+    """Anota para data/reuniones_a_rastrear.json los proyectos a los que se les infiere
+    reunión de comisión por tener orden del día pero la agenda no registra reunión: sirven
+    para buscar después en qué reunión se trataron."""
+    if reuniones_de(ctx, p) or not reunion_inferida(ctx, p):
+        return
+    k = clave_de(p)
+    e = ctx["rastrear"].setdefault(exp_id(p), {
+        "id": exp_id(p), "bloques": [], "orden_del_dia": [], "fecha_dictamen": p.get("fecha_dictamen"),
+        "aprobado_por_el_senado_con_od": k in ctx["aprobados_con_od"]})
+    if titulo(bloque) not in e["bloques"]:
+        e["bloques"].append(titulo(bloque))
+    ods = [f"{o['nro']}/{o['anio']}" for o in ctx["od_por_exp"].get(k, [])]
+    ods += [f"{o['nro']}/{o['anio']}" for o in (p.get("od_trazabilidad") or [])]
+    for od in ods:
+        if od not in e["orden_del_dia"]:
+            e["orden_del_dia"].append(od)
+
+
+def construir_por_caducar(ctx, bloque, fuentes=None):
+    """Proyectos de ley de 2025 (origen Senado) de senadores actuales del bloque, sin sanción ni archivo.
+    El año es el del número de expediente: incluye los /25 con fecha de ingreso de enero o febrero de 2026."""
     out = []
     for p in ctx["proyectos"]:
         if p.get("origen") != "S" or p.get("tipo") != "PL" or anio_de(p) != ANIO_ACTUAL - 1:
             continue
         if p.get("archivado") or p.get("sancionado"):
             continue
-        if ctx["bloque_de"](p) != bloque:
+        if not ctx["pertenece"](p, bloque):
             continue
-        # Con media sanción (comunicado a Diputados) tienen un año más de vigencia.
-        if "badge_diputados" in p:
+        # Con media sanción (comunicado a Diputados o aprobado por el Senado) tienen un año más de vigencia.
+        if con_media_sancion(p):
             continue
         out.append(resumen_proyecto(ctx, p, bloque))
+        if fuentes is not None:
+            fuentes.append(p)
     # primero los que tienen algún avance registrado; luego, más nuevos primero
     def clave(x):
         d, m, y = x["fecha"].split("-")
@@ -597,8 +719,8 @@ def construir_aprobados(ctx, bloque):
     sin importar el año en que se presentaron."""
     out = []
     for p in ctx["proyectos"]:
-        b = p.get("badge_sancionado")
-        if not b or ctx["bloque_de"](p) != bloque:
+        b = aprobacion_de(p)
+        if not b or not ctx["pertenece"](p, bloque):
             continue
         fecha = fecha_visible(b.get("fecha") or "")
         if not fecha.endswith(str(ANIO_ACTUAL)):
@@ -619,7 +741,7 @@ def construir_bloque(ctx, bloque, hoy):
     gw = ctx["gw"]
     P = ctx["proyectos"]
 
-    mios = [p for p in P if anio_de(p) == ANIO_ACTUAL and ctx["bloque_de"](p) == bloque]
+    mios = [p for p in P if anio_de(p) == ANIO_ACTUAL and ctx["pertenece"](p, bloque)]
     mios.sort(key=lambda p: parse_fecha(p["fecha"]) or (0, 0, 0), reverse=True)
 
     # Senadores vigentes del bloque
@@ -628,7 +750,7 @@ def construir_bloque(ctx, bloque, hoy):
 
     senadores_out = []
     for k, v in sens:
-        propios = [p for p in mios if any(gw._nombres_coinciden(a, k) for a in p.get("autores", []))]
+        propios = [p for p in mios if any(gw._nombres_coinciden(a, k) for a in autores_de(p))]
         por_tipo = Counter(p["tipo"] for p in propios)
         senadores_out.append({
             "nombre": nombre_persona(k),
@@ -699,7 +821,10 @@ def construir_bloque(ctx, bloque, hoy):
     proyectos_out = [resumen_proyecto(ctx, p, bloque) for p in mios]
     ods = construir_ods(ctx, bloque)
     preferencias = construir_preferencias(ctx, bloque)
-    por_caducar = construir_por_caducar(ctx, bloque)
+    fuentes_pc = []
+    por_caducar = construir_por_caducar(ctx, bloque, fuentes_pc)
+    for p in mios + fuentes_pc:
+        registrar_rastreo(ctx, p, bloque)
     votaciones = construir_votaciones(ctx, bloque)
     aprobados = construir_aprobados(ctx, bloque)
 
@@ -835,6 +960,13 @@ def main():
             f.write(html)
         resumen.append((slug, len(datos["senadores"]), datos["total"],
                         datos["movimiento"]["con_movimiento"], len(html) / 1024))
+
+    if not pedidos:
+        carpeta_datos = os.path.join(OUT, "data")
+        os.makedirs(carpeta_datos, exist_ok=True)
+        lista = sorted(ctx["rastrear"].values(), key=lambda e: e["id"])
+        with open(os.path.join(carpeta_datos, "reuniones_a_rastrear.json"), "w", encoding="utf-8") as f:
+            json.dump(lista, f, ensure_ascii=False, indent=2)
 
     print(f"{'bloque':30} {'sen':>4} {'proy':>5} {'mov':>5} {'KB':>7}")
     for slug, s, t, m, kb in resumen:

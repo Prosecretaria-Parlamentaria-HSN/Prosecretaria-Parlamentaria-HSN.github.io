@@ -517,7 +517,7 @@ function renderODs(){
     items:B.ods,tarjeta:function(o){return tarjetaOD(o,false)},
     texto:function(o){return 'OD '+o.nro+'/'+o.anio+' '+o.descripcion+' '+o.comision+' '+o.expedientes.map(function(e){return e.id+' '+e.extracto+' '+e.autores.join(' ')}).join(' ');},
     uno:'orden del día',varios:'órdenes del día',vacio:'En este momento no hay órdenes del día con proyectos del bloque en la Ayuda Memoria.',
-    nota:'Fuente: Ayuda Memoria del Senado. Se asigna cada orden del día al bloque del primer autor del proyecto. Si un dictamen reúne proyectos de distintos bloques, aparece en cada uno de ellos. Las órdenes del día de proyectos del Poder Ejecutivo o de la Cámara de Diputados no se asignan a ningún bloque.'});
+    nota:'Fuente: Ayuda Memoria del Senado. Se asigna cada orden del día al bloque de los autores nombrados en la carátula del proyecto. Si un dictamen reúne proyectos de distintos bloques, aparece en cada uno de ellos. Las órdenes del día de proyectos del Poder Ejecutivo o de la Cámara de Diputados no se asignan a ningún bloque.'});
 }
 function renderPreferencias(){
   listaPaginada({panel:'preferencias',titulo:'Preferencias vigentes',tam:5,paso:10,
@@ -541,7 +541,7 @@ function renderCaducar(){
     items:B.por_caducar,tarjeta:tarjetaProyecto,buscador:true,
     texto:function(p){return p.id+' '+p.extracto+' '+p.autores.join(' ')+' '+p.comisiones.join(' ');},
     uno:'proyecto de ley',varios:'proyectos de ley',vacio:'No hay proyectos de ley de '+(B.anio-1)+' de senadores y senadoras actuales del bloque pendientes de trámite.',
-    nota:'Se listan primero los proyectos con orden del día o preferencia, luego los que tuvieron reunión de comisión y después el resto, del más nuevo al más antiguo. Cada proyecto se atribuye al bloque actual de su primer autor. Fuente: Boletín de Novedades y agenda de comisiones del Senado.'});
+    nota:'Se listan primero los proyectos con orden del día o preferencia, luego los que tuvieron reunión de comisión y después el resto, del más nuevo al más antiguo. Cada proyecto se atribuye al bloque actual de los autores nombrados en la carátula, si siguen siendo senadores. Fuente: Boletín de Novedades y agenda de comisiones del Senado.'});
 }
 function renderProyectos(){
   var link=function(sub,txt){return '<p class="nota" style="margin:8px 0 0">'+txt+' <button type="button" class="lnk" data-ir="seguimiento" data-sub="'+sub+'">Ver en Seguimiento →</button></p>';};
@@ -562,7 +562,7 @@ function renderProyectos(){
     },
     texto:function(p){return p.id+' '+p.extracto+' '+p.autores.join(' ')+' '+p.tipo_label;},
     uno:'proyecto',varios:'proyectos',vacio:'El bloque no registra proyectos presentados en '+B.anio+' hasta la fecha.',
-    nota:'Cada proyecto se cuenta para el bloque de su primer autor. Fuente: Boletín de Novedades y agenda de comisiones del Senado.'});
+    nota:'Cada proyecto se cuenta para el bloque de los autores nombrados en la carátula. Fuente: Boletín de Novedades y agenda de comisiones del Senado.'});
 }
 function renderVotaciones(){
   var V=B.votaciones;
@@ -621,7 +621,9 @@ function renderMetodo(){
   +'<h3>Cada cuánto se actualiza</h3>'
   +'<p>Dos veces por día, de forma automática. La fecha y hora de la última actualización figuran al pie de cada página.</p>'
   +'<h3>Cómo se asignan los proyectos al bloque</h3>'
-  +'<p>Un proyecto se cuenta para el bloque de su primer autor. Los proyectos de ley de '+(B.anio-1)+' próximos a caducar y las órdenes del día se atribuyen al bloque actual de su primer autor. Si lo firman senadores de otros bloques, se indica en la ficha del proyecto.</p>'
+  +'<p>La autoría se toma del encabezado de la carátula del expediente (el nombre que figura antes de los dos puntos). Un proyecto se cuenta para cada senador o senadora nombrado y para el bloque de cada uno, una sola vez por bloque; si dice «y otros», cuentan solo los nombrados. Los proyectos de '+B.anio+' van al bloque registrado al presentarlos; los de años anteriores (proyectos de ley de '+(B.anio-1)+' próximos a caducar, órdenes del día) al bloque actual de quien los firma, si sigue siendo senador o senadora. Si lo firman integrantes de otros bloques, se indica en la ficha del proyecto.</p>'
+  +'<h3>Cuándo un proyecto figura con reunión de comisión</h3>'
+  +'<p>Cuando la agenda de comisiones registra una reunión con el proyecto en el temario o, si no la registra, cuando el proyecto tiene orden del día o fecha de dictamen, porque el dictamen se firma en una reunión de comisión. En ese caso la ficha dice «Reunión de comisión» sin fecha.</p>'
   +'<h3>Qué votaciones se muestran</h3>'
   +'<p>Las votaciones en general de '+B.anio+', con los votos afirmativos, negativos y abstenciones del bloque. No se incluyen las votaciones en particular.</p>'
   +'<h3>Dónde interviene la inteligencia artificial</h3>'
