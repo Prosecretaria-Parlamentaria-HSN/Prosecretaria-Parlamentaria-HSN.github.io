@@ -215,28 +215,25 @@ def autores_de(p):
 
 
 def bloques_de_proyecto(p, senador_de):
-    """Bloques a los que se atribuye un proyecto del Senado. REGLA (vale para los 14 bloques):
+    """Bloques a los que se atribuye un proyecto del Senado. REGLAS (valen para los 14 bloques):
 
-    * La autoría sale del prefijo de la carátula, no del orden de la columna AUTOR: un
-      proyecto cuenta para cada senador nombrado ("CAPITANICH Y BAHL" -> los dos) y para el
-      bloque de cada uno, una sola vez por bloque. Con "Y OTROS" cuentan sólo los nombrados;
-      "VARIOS SENADORES" queda como estaba. El sistema de datos guarda esa autoría en
-      `autores_caratula` / `bloques_caratula` (scripts/autoria_caratula.py).
-    * Proyectos del año en curso: el bloque registrado al presentarlos (`bloques_caratula`).
-    * Años anteriores (Por caducar, aprobados, órdenes del día): el bloque ACTUAL de cada
-      autor nombrado si sigue siendo senador/a vigente; si ya no lo es, ese autor no cuenta.
-      Si ningún autor del prefijo sigue en el Senado, cuenta para el bloque de los demás
-      firmantes que sí son senadores/as vigentes.
-    * Si el proyecto no tiene esos campos, comportamiento anterior: el bloque de su primer
-      autor (registrado al presentar en el año en curso; actual en años anteriores).
+    * Autor: el que nombra la carátula (prefijo antes de los dos puntos), no el orden de la
+      columna AUTOR. Un solo autor: el proyecto es de ese senador y de su bloque. Dos o más
+      ("CAPITANICH Y BAHL"): cuenta para cada senador y para el bloque de cada uno, una sola
+      vez por bloque. Con "Y OTROS" cuentan sólo los nombrados; "VARIOS SENADORES" queda como
+      estaba. El sistema de datos guarda esa autoría en `autores_caratula` (scripts/autoria_caratula.py).
+    * Bloque: el bloque ACTUAL de cada autor según senadores.json, calculado acá al generar la
+      página (no se usa ningún valor guardado): el proyecto sigue a su senador; si cambia de
+      bloque, sus proyectos pasan al nuevo.
+    * Un autor que ya no es senador/a (no vigente) no aporta bloque. Si todos los autores del
+      prefijo dejaron el Senado, cuenta para el bloque de los demás firmantes que sí son
+      senadores/as vigentes; si el prefijo mezcla ex senadores y vigentes, cuentan sólo los vigentes.
+    * Sin `autores_caratula` (comunicaciones sin prefijo, "varios senadores"): el bloque actual
+      de su primer autor, si es senador/a vigente.
+    * El año del proyecto es el del número de expediente (ver anio_de), nunca el de la fecha.
     `senador_de(autor)` devuelve (nombre, datos) del senador vigente o None."""
     if p.get("origen") != "S":
         return []
-    if anio_de(p) == ANIO_ACTUAL:
-        bc = [b for b in (p.get("bloques_caratula") or []) if b and b != "Sin datos"]
-        if bc:
-            return sin_repetir(bc)
-        return [p["bloques"][0]] if p.get("bloques") else []
     autores = p.get("autores_caratula") or (p.get("autores") or [])[:1]
     out = []
     for a in autores:
@@ -244,8 +241,6 @@ def bloques_de_proyecto(p, senador_de):
         if s:
             out.append(s[1].get("bloque"))
     if not out and p.get("autores_caratula"):
-        # Todos los autores del prefijo dejaron el Senado: el proyecto cuenta para el bloque
-        # de los firmantes que siguen siendo senadores/as vigentes.
         for f in (list(p.get("autores") or []) + list(p.get("coautores") or [])
                   + list(p.get("firmantes_trazabilidad") or [])):
             s = senador_de(f)
@@ -361,6 +356,8 @@ def construir_contexto(gw):
         cands = por_apellido.get(gw._norm_nombre(apellido).split(",")[0].strip(), [])
         return cands[0] if len(cands) == 1 else None
 
+    sen_todos = {gw._norm_nombre(k): (k, v) for k, v in senadores.items()}
+
     proy_idx = {}
     for p in proyectos:
         try:
@@ -415,6 +412,9 @@ def construir_contexto(gw):
         "pertenece": pertenece,
         "aprobados_con_od": aprobados_con_od,
         "rastrear": {},
+        "sen_todos": sen_todos,
+        "autor_sin_dato": set(),
+        "autor_por_apellido": set(),
         "preferencias": preferencias,
         "pref_idx": pref_idx,
         "ods_am": ods_am,
@@ -563,14 +563,39 @@ def votacion_de_od(ctx, bloque, nro, anio):
     return {"fecha": a["fecha"], "bloque": votos_del_bloque(a, bloque), "resultado": (a.get("resultado") or "").capitalize()}
 
 
+def color_bloque(b):
+    return COLORES_BLOQUE.get(norm_bloque(b), "#1B5EA2")
+
+
 def otros_bloques(ctx, p, bloque):
-    """Bloques de las demás firmas que se muestran en la ficha."""
+    """Otros bloques a los que también se adjudica el proyecto (etiqueta «También figura en»)."""
     if not bloque:
         return []
-    if p.get("bloques_caratula"):
-        propio = norm_bloque(bloque)
-        return [titulo(b) for b in bloques_de_proyecto(p, ctx["senador_de"]) if norm_bloque(b) != propio]
-    return [titulo(b) for b in p.get("bloques", [])[1:] if b != bloque]
+    propio = norm_bloque(bloque)
+    return [{"nombre": titulo(b), "color": color_bloque(b)}
+            for b in bloques_de_proyecto(p, ctx["senador_de"]) if norm_bloque(b) != propio]
+
+
+def mandato_cumplido_de(ctx, p):
+    """Autores del prefijo que ya no son senadores/as (figuran en senadores.json como no
+    vigentes: el mismo listado que Senadores_mandato_cumplido_2025.xlsx). Un autor que no
+    figura en el padrón no se etiqueta y queda anotado para el informe."""
+    out = []
+    for a in p.get("autores_caratula") or []:
+        s = ctx["sen_todos"].get(ctx["gw"]._norm_nombre(a))
+        if s is None:
+            # grafía distinta del nombre ("CORA, STEFANIA" / "CORA, ESTEFANÍA"): se vincula por
+            # apellido si es único en el padrón, y se anota para el informe
+            ap = ctx["gw"]._norm_nombre(a).split(",")[0].strip()
+            cands = [v for k, v in ctx["sen_todos"].items() if k.split(",")[0].strip() == ap]
+            if len(cands) == 1:
+                s = cands[0]
+                ctx["autor_por_apellido"].add((a, s[0]))
+        if s is None:
+            ctx["autor_sin_dato"].add((exp_id(p), a))
+        elif not s[1].get("vigente"):
+            out.append(nombre_persona(a))
+    return out
 
 
 def resumen_proyecto(ctx, p, bloque=None):
@@ -614,13 +639,14 @@ def construir_ods(ctx, bloque):
                 sin_proyecto.append(cod)
             elif ctx["pertenece"](p, bloque):
                 exps.append({"id": exp_id(p), "extracto": limpiar(p.get("extracto", "")),
-                             "autores": [nombre_persona(a) for a in autores_de(p)], "url": p.get("url")})
+                             "autores": [nombre_persona(a) for a in autores_de(p)], "url": p.get("url"),
+                             "otros_bloques": otros_bloques(ctx, p, bloque)})
         if not exps and sin_proyecto and o.get("autor"):
             # expediente fuera de la base: se usa el apellido del autor que informa la Ayuda Memoria
             primero = re.split(r"\s+y\s+|,", o["autor"])[0].strip()
             s = ctx["senador_por_apellido"](primero) if primero and primero.lower() != "otros" else None
             if s and s[1].get("bloque") == bloque:
-                exps = [{"id": c, "extracto": "", "autores": [nombre_persona(s[0])], "url": None} for c in sin_proyecto]
+                exps = [{"id": c, "extracto": "", "autores": [nombre_persona(s[0])], "url": None, "otros_bloques": []} for c in sin_proyecto]
         if not exps:
             continue
         out.append({
@@ -671,6 +697,7 @@ def construir_preferencias(ctx, bloque):
             "dictamen": "dictamen" in (s.get("observaciones") or "").lower(),
             "observaciones": limpiar(s.get("observaciones") or ""),
             "od": s.get("od_nro"),
+            "otros_bloques": otros_bloques(ctx, p, bloque) if p else [],
             "url": p.get("url") if p else None,
         })
     out.sort(key=lambda x: x["orden"], reverse=True)
@@ -712,7 +739,9 @@ def construir_por_caducar(ctx, bloque, fuentes=None):
         # Con media sanción (comunicado a Diputados o aprobado por el Senado) tienen un año más de vigencia.
         if con_media_sancion(p):
             continue
-        out.append(resumen_proyecto(ctx, p, bloque))
+        r = resumen_proyecto(ctx, p, bloque)
+        r["mandato_cumplido"] = mandato_cumplido_de(ctx, p)
+        out.append(r)
         if fuentes is not None:
             fuentes.append(p)
     # primero los que tienen algún avance registrado; luego, más nuevos primero
@@ -856,6 +885,7 @@ def construir_bloque(ctx, bloque, hoy):
         "preferencias": preferencias,
         "por_caducar": por_caducar,
         "pc_con_avance": sum(1 for x in por_caducar if x["od"] or x["preferencia"] or x["reunion"]),
+        "pc_mandato": sum(1 for x in por_caducar if x["mandato_cumplido"]),
         "votaciones": votaciones,
         "aprobados": aprobados,
         "proyectos": proyectos_out,
@@ -908,8 +938,10 @@ def construir_sintesis(d):
         frases.append("Hay " + _lista_es(extra) + ".")
     if d["por_caducar"]:
         n = len(d["por_caducar"])
-        frases.append(f"Además, {n} {'proyecto de ley de' if n == 1 else 'proyectos de ley de'} {t - 1} de senadores y senadoras del bloque "
-                      f"{'está próximo' if n == 1 else 'están próximos'} a caducar.")
+        mc = d.get("pc_mandato", 0)
+        frases.append(f"Además, hay {n} {'proyecto de ley de' if n == 1 else 'proyectos de ley de'} {t - 1} de senadores y senadoras del bloque "
+                      f"{'próximo' if n == 1 else 'próximos'} a caducar"
+                      + (f", {mc} de ellos de autores con mandato cumplido." if mc else "."))
     if d["comisiones"]:
         top = [c["nombre"] for c in d["comisiones"][:2]]
         frases.append(f"Los proyectos del año se giraron a {len(d['comisiones'])} comisiones, con mayor volumen en {_lista_es(top)}.")

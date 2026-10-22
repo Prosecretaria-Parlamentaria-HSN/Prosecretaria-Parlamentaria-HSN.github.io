@@ -64,6 +64,7 @@ p{margin:0 0 10px}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0}
 .chip{display:inline-block;font-size:12px;padding:3px 10px;border-radius:999px;background:var(--azul3);color:var(--azul);font-weight:600}
 .chip.suave{background:var(--bg);color:var(--txt);font-weight:400;border:1px solid var(--azul3)}
+.pbd{display:inline-block;width:.6em;height:.6em;border-radius:50%;background:var(--c,var(--azul));box-shadow:0 0 0 1px rgba(0,0,0,.25);margin:0 .35em 0 .1em;vertical-align:.02em}
 
 /* Senadores */
 .sen{display:flex;gap:12px;align-items:center}
@@ -258,8 +259,17 @@ var TIPOS_PRINCIPALES=['PL','PR','PD','PC'];
 var TAM=20;
 
 /* ── Piezas ─────────────────────────────────────────────── */
-function kpi(v,l){return '<div class="card kpi-card"><div class="kpi-v">'+num(v)+'</div><div class="kpi-l">'+esc(l)+'</div></div>';}
+function kpi(v,l,sub){return '<div class="card kpi-card"><div class="kpi-v">'+num(v)+'</div><div class="kpi-l">'+esc(l)+'</div>'+(sub?'<div class="kpi-l" style="font-size:12px;margin-top:2px">'+esc(sub)+'</div>':'')+'</div>';}
 function chips(lista,suave){return lista.length?'<div class="chips">'+lista.map(function(c){return '<span class="chip'+(suave?' suave':'')+'">'+esc(c)+'</span>'}).join('')+'</div>':'';}
+function okColor(c){return /^#[0-9A-Fa-f]{6}$/.test(c||'')?c:'#1B5EA2';}
+function etqTambien(ob){
+  return ob&&ob.length?'<span class="chip">También figura en: '+ob.map(function(b){return '<i class="pbd" style="--c:'+okColor(b.color)+'"></i>'+esc(b.nombre);}).join(', ')+'</span>':'';
+}
+function etqMandato(m){return m&&m.length?'<span class="chip">Autor/a con mandato cumplido: '+esc(m.join(', '))+'</span>':'';}
+function chipsPie(lista,ob,mandato){
+  var h=lista.map(function(c){return '<span class="chip">'+esc(c)+'</span>';}).join('')+etqTambien(ob)+etqMandato(mandato);
+  return h?'<div class="chips">'+h+'</div>':'';
+}
 function vacio(txt){return '<div class="vacio card">'+esc(txt)+'</div>';}
 function enlace(u,txt){return url(u)?'<div class="meta" style="margin-top:8px"><a href="'+esc(url(u))+'" target="_blank" rel="noopener">'+esc(txt)+'</a></div>':'';}
 function verTodos(id,txt){return '<p class="mas-link"><button type="button" data-ir="'+id+'">'+esc(txt)+' →</button></p>';}
@@ -321,7 +331,7 @@ function datosKpis(){
     [B.total,'Proyectos presentados en '+B.anio],
     [m.con_movimiento,'Proyectos de '+B.anio+' con movimiento'],
     [B.aprobados.length,plural(B.aprobados.length,'Proyecto aprobado por el Senado en '+B.anio,'Proyectos aprobados por el Senado en '+B.anio)],
-    [B.por_caducar.length,plural(B.por_caducar.length,'Proyecto de ley de '+(B.anio-1)+' por caducar','Proyectos de ley de '+(B.anio-1)+' por caducar')]
+    [B.por_caducar.length,plural(B.por_caducar.length,'Proyecto de ley de '+(B.anio-1)+' por caducar','Proyectos de ley de '+(B.anio-1)+' por caducar'),B.pc_mandato?B.pc_mandato+' de autores con mandato cumplido':'']
   ];
 }
 function datosQuePaso(){
@@ -356,7 +366,7 @@ function tarjetaOD(o,compacta){
     +'<p class="ext" style="font-weight:600;color:var(--azul)">'+esc(o.descripcion)+'</p>';
   o.expedientes.forEach(function(e){
     h+='<div class="meta" style="margin-top:6px"><b>'+esc(e.id)+'</b>'+(e.extracto?' · '+esc(e.extracto):'')+(e.autores.length?'<br>'+esc(e.autores.join(', ')):'')
-      +(url(e.url)?' · <a href="'+esc(url(e.url))+'" target="_blank" rel="noopener">Ver expediente</a>':'')+'</div>';
+      +(url(e.url)?' · <a href="'+esc(url(e.url))+'" target="_blank" rel="noopener">Ver expediente</a>':'')+chipsPie([],e.otros_bloques)+'</div>';
   });
   if(v){
     h+='<div class="meta" style="margin-top:8px"><b>Tratada en el recinto el '+esc(v.fecha)+'</b> (votación en general'+(v.resultado?' · '+esc(v.resultado.toLowerCase()):'')+')</div>'+(v.bloque?barraVotos(v.bloque):'');
@@ -371,7 +381,7 @@ function tarjetaPreferencia(p){
     +'<p class="ext">'+(p.extracto?esc(p.extracto):'<i>Detalle del expediente no disponible en la base del sistema.</i>')+'</p>'
     +(p.autores.length?'<div class="meta"><b>Autores:</b> '+esc(p.autores.join(', '))+'</div>':'')
     +'<div class="meta"><b>'+esc(p.motivo)+'</b></div>'
-    +chips(['Preferencia aprobada'].concat(p.dictamen?['Con dictamen de comisión']:(p.observaciones?[p.observaciones]:[])))
+    +chipsPie(['Preferencia aprobada'].concat(p.dictamen?['Con dictamen de comisión']:(p.observaciones?[p.observaciones]:[])),p.otros_bloques)
     +enlace(p.url,'Ver expediente en el Senado')+'</div>';
 }
 
@@ -380,6 +390,7 @@ function tarjetaAprobado(p){
     +(p.ley_numero?'<span class="chip">'+esc(p.ley_numero)+'</span>':'')+(p.diputados?'<span class="chip">Enviado a Diputados</span>':'')+'</div>'
     +'<p class="ext">'+esc(p.extracto)+'</p>'
     +'<div class="meta"><b>Autores:</b> '+esc(p.autores.join(', ')||'—')+'</div>'
+    +chipsPie([],p.otros_bloques)
     +enlace(p.url,'Ver expediente en el Senado')+'</div>';
 }
 
@@ -400,8 +411,7 @@ function tarjetaProyecto(p){
     +'<div class="meta"><b>Autores:</b> '+esc(p.autores.join(', ')||'—')+'</div>'
     +(p.comisiones.length?'<div class="meta"><b>Giro:</b> '+esc(p.comisiones.join(' · '))+'</div>':'')
     +(p.conocimiento&&p.conocimiento.length?'<div class="meta"><b>Para conocimiento:</b> '+esc(p.conocimiento.join(' · '))+'</div>':'')
-    +(p.otros_bloques.length?'<div class="meta"><b>Firmas de otros bloques:</b> '+esc(p.otros_bloques.join(', '))+'</div>':'')
-    +chips(etiquetasProyecto(p))
+    +chipsPie(etiquetasProyecto(p),p.otros_bloques,p.mandato_cumplido)
     +enlace(p.url,'Ver expediente en el Senado')+'</div>';
 }
 
@@ -469,7 +479,7 @@ function listaPaginada(cfg){
 function renderResumen(){
   var h='';
   h+='<h2>Panorama del bloque</h2><div class="grid g5" style="margin-top:12px">'
-    +datosKpis().map(function(k){return kpi(k[0],k[1]);}).join('')+'</div>';
+    +datosKpis().map(function(k){return kpi(k[0],k[1],k[2]);}).join('')+'</div>';
   h+='<p class="seg-linea"><span><b>'+num(B.ods.length)+'</b> '+plural(B.ods.length,'orden del día con proyectos del bloque','órdenes del día con proyectos del bloque')+'</span><span class="sep">|</span>'
     +'<span><b>'+num(B.preferencias.length)+'</b> '+plural(B.preferencias.length,'preferencia vigente','preferencias vigentes')+'</span>'
     +'<button type="button" class="lnk" data-ir="seguimiento">Ver Seguimiento →</button></p>';
@@ -538,7 +548,9 @@ function renderAprobados(){
 function renderCaducar(){
   listaPaginada({panel:'caducar',titulo:'Proyectos de ley próximos a caducar',tam:5,paso:10,
     intro:'Proyectos de ley presentados en '+(B.anio-1)+' por senadores y senadoras actuales del bloque que no fueron sancionados ni archivados. Los proyectos de ley de '+(B.anio-1)+' caducan, salvo los que ya tienen media sanción (enviados a Diputados), que cuentan con un año más de vigencia y por eso no se incluyen.',
+    resumenHtml:B.por_caducar.length&&B.pc_mandato?'<p style="margin:10px 0 0"><b>'+num(B.por_caducar.length)+'</b> '+plural(B.por_caducar.length,'proyecto de ley de '+(B.anio-1)+' próximo a caducar','proyectos de ley de '+(B.anio-1)+' próximos a caducar')+', <b>'+num(B.pc_mandato)+'</b> de ellos de autores con mandato cumplido.</p>':'',
     items:B.por_caducar,tarjeta:tarjetaProyecto,buscador:true,
+    filtros:[{id:'mandato',label:'De autores con mandato cumplido',fn:function(p){return !!(p.mandato_cumplido&&p.mandato_cumplido.length);}}],
     texto:function(p){return p.id+' '+p.extracto+' '+p.autores.join(' ')+' '+p.comisiones.join(' ');},
     uno:'proyecto de ley',varios:'proyectos de ley',vacio:'No hay proyectos de ley de '+(B.anio-1)+' de senadores y senadoras actuales del bloque pendientes de trámite.',
     nota:'Se listan primero los proyectos con orden del día o preferencia, luego los que tuvieron reunión de comisión y después el resto, del más nuevo al más antiguo. Cada proyecto se atribuye al bloque actual de los autores nombrados en la carátula, si siguen siendo senadores. Fuente: Boletín de Novedades y agenda de comisiones del Senado.'});
@@ -621,7 +633,7 @@ function renderMetodo(){
   +'<h3>Cada cuánto se actualiza</h3>'
   +'<p>Dos veces por día, de forma automática. La fecha y hora de la última actualización figuran al pie de cada página.</p>'
   +'<h3>Cómo se asignan los proyectos al bloque</h3>'
-  +'<p>La autoría se toma del encabezado de la carátula del expediente (el nombre que figura antes de los dos puntos). Un proyecto se cuenta para cada senador o senadora nombrado y para el bloque de cada uno, una sola vez por bloque; si dice «y otros», cuentan solo los nombrados. Los proyectos de '+B.anio+' van al bloque registrado al presentarlos; los de años anteriores (proyectos de ley de '+(B.anio-1)+' próximos a caducar, órdenes del día) al bloque actual de quien los firma, si sigue siendo senador o senadora. Si lo firman integrantes de otros bloques, se indica en la ficha del proyecto.</p>'
+  +'<p>La autoría se toma del encabezado de la carátula del expediente (el nombre que figura antes de los dos puntos). Un proyecto se cuenta para cada senador o senadora nombrado y para el bloque de cada uno, una sola vez por bloque; si dice «y otros», cuentan solo los nombrados. Se usa siempre el bloque actual de cada autor: si un senador cambia de bloque, sus proyectos pasan al nuevo. Si el autor ya no es senador o senadora no aporta bloque; si todos los autores nombrados dejaron el Senado, el proyecto cuenta para el bloque de los demás firmantes que siguen en el cargo. Si lo firman integrantes de otros bloques, la ficha indica «También figura en».</p>'
   +'<h3>Cuándo un proyecto figura con reunión de comisión</h3>'
   +'<p>Cuando la agenda de comisiones registra una reunión con el proyecto en el temario o, si no la registra, cuando el proyecto tiene orden del día o fecha de dictamen, porque el dictamen se firma en una reunión de comisión. En ese caso la ficha dice «Reunión de comisión» sin fecha.</p>'
   +'<h3>Qué votaciones se muestran</h3>'
@@ -637,7 +649,7 @@ var PN={i:0,slides:null,abierto:false};
 function pnFila(k,t,chip){return '<div class="pn-fila"><div class="k">'+esc(k)+'</div><div class="t">'+esc(t)+'</div>'+(chip?'<span class="pn-chip">'+esc(chip)+'</span>':'')+'</div>';}
 function pnTarjetas(lista,peq){
   return '<div style="display:flex;gap:28px">'+lista.map(function(k){
-    return '<div class="pn-card"><div class="pn-n'+(peq?' peq':'')+'">'+num(k[0])+'</div><div class="pn-l">'+esc(k[1])+'</div></div>';
+    return '<div class="pn-card"><div class="pn-n'+(peq?' peq':'')+'">'+num(k[0])+'</div><div class="pn-l">'+esc(k[1])+'</div>'+(k[2]?'<div class="pn-l" style="font-size:22px;margin-top:6px">'+esc(k[2])+'</div>':'')+'</div>';
   }).join('')+'</div>';
 }
 function pnSlides(){
@@ -690,7 +702,7 @@ function pnSlides(){
         [B.ods.length,plural(B.ods.length,'orden del día con proyectos del bloque','órdenes del día con proyectos del bloque')],
         [B.preferencias.length,plural(B.preferencias.length,'preferencia vigente','preferencias vigentes')],
         [B.aprobados.length,plural(B.aprobados.length,'proyecto aprobado por el Senado en '+B.anio,'proyectos aprobados por el Senado en '+B.anio)],
-        [B.por_caducar.length,plural(B.por_caducar.length,'proyecto de ley de '+(B.anio-1)+' por caducar','proyectos de ley de '+(B.anio-1)+' por caducar')]
+        [B.por_caducar.length,plural(B.por_caducar.length,'proyecto de ley de '+(B.anio-1)+' por caducar','proyectos de ley de '+(B.anio-1)+' por caducar'),B.pc_mandato?B.pc_mandato+' de autores con mandato cumplido':'']
       ],true)
       +(B.por_caducar.length&&pca?'<p style="margin:0;font-size:26px">De los '+num(B.por_caducar.length)+' proyectos por caducar, <b style="color:var(--azul)">'+num(pca)+'</b> '+plural(pca,'ya tuvo','ya tuvieron')+' reunión de comisión u orden del día.</p>':'')+'</div>';
   });
