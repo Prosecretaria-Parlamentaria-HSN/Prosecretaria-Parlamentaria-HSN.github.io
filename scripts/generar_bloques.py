@@ -567,6 +567,19 @@ def color_bloque(b):
     return COLORES_BLOQUE.get(norm_bloque(b), "#1B5EA2")
 
 
+def estado_de(ctx, p):
+    """Etiquetas de estado de un proyecto para las tarjetas de Seguimiento."""
+    f = flags_de(ctx, p)
+    return {k: f[k] for k in ("reunion", "fecha_reunion", "od", "preferencia", "aprobado", "ley", "diputados")}
+
+
+def datos_tarjeta(ctx, p):
+    """Campos que usa la tarjeta de proyecto en Seguimiento (tipo, fecha de ingreso, comisiones, estado)."""
+    giros_p, _ = separar_giros(p)
+    return {"tipo": p["tipo"], "fecha": fecha_visible(p.get("fecha", "")),
+            "comisiones": [visible_com(ctx, c) for c in giros_p], "estado": estado_de(ctx, p)}
+
+
 def otros_bloques(ctx, p, bloque):
     """Otros bloques a los que también se adjudica el proyecto (etiqueta «También figura en»)."""
     if not bloque:
@@ -640,13 +653,14 @@ def construir_ods(ctx, bloque):
             elif ctx["pertenece"](p, bloque):
                 exps.append({"id": exp_id(p), "extracto": limpiar(p.get("extracto", "")),
                              "autores": [nombre_persona(a) for a in autores_de(p)], "url": p.get("url"),
-                             "otros_bloques": otros_bloques(ctx, p, bloque)})
+                             "otros_bloques": otros_bloques(ctx, p, bloque), **datos_tarjeta(ctx, p)})
         if not exps and sin_proyecto and o.get("autor"):
             # expediente fuera de la base: se usa el apellido del autor que informa la Ayuda Memoria
             primero = re.split(r"\s+y\s+|,", o["autor"])[0].strip()
             s = ctx["senador_por_apellido"](primero) if primero and primero.lower() != "otros" else None
             if s and s[1].get("bloque") == bloque:
-                exps = [{"id": c, "extracto": "", "autores": [nombre_persona(s[0])], "url": None, "otros_bloques": []} for c in sin_proyecto]
+                exps = [{"id": c, "extracto": "", "autores": [nombre_persona(s[0])], "url": None, "otros_bloques": [],
+                          "tipo": "", "fecha": "", "comisiones": [], "estado": {}} for c in sin_proyecto]
         if not exps:
             continue
         out.append({
@@ -699,6 +713,7 @@ def construir_preferencias(ctx, bloque):
             "od": s.get("od_nro"),
             "otros_bloques": otros_bloques(ctx, p, bloque) if p else [],
             "url": p.get("url") if p else None,
+            **(datos_tarjeta(ctx, p) if p else {"tipo": "", "fecha": "", "comisiones": [], "estado": {}}),
         })
     out.sort(key=lambda x: x["orden"], reverse=True)
     for x in out:
