@@ -16,20 +16,20 @@ Corrección: la clave ahora incluye el origen en `scraper_proyectos.py`, `import
 
 | Bloque | Proyectos 2026 antes | después | Con reunión antes | después | Con orden del día antes | después | Aprobados antes | después | Por caducar antes | después | Entran | Salen | /25 que salen |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Convicción Federal | 101 | 101 | 14 | 19 | 6 | 5 | 6 | 7 | 22 | 29 | 2 | 2 | 0 |
-| Despierta Chubut | 31 | 29 | 7 | 6 | 5 | 4 | 0 | 0 | 6 | 7 | 0 | 2 | 0 |
+| Convicción Federal | 101 | 101 | 14 | 19 | 6 | 5 | 6 | 7 | 22 | 42 | 2 | 2 | 0 |
+| Despierta Chubut | 31 | 29 | 7 | 6 | 5 | 4 | 0 | 0 | 6 | 9 | 0 | 2 | 0 |
 | Frente Cívico por Santiago | 23 | 25 | 4 | 4 | 3 | 3 | 0 | 0 | 1 | 1 | 2 | 0 | 0 |
 | Frente PRO | 34 | 36 | 3 | 7 | 1 | 2 | 5 | 5 | 19 | 19 | 4 | 0 | 2 |
 | Independencia | 69 | 69 | 12 | 14 | 5 | 5 | 5 | 7 | 75 | 74 | 0 | 0 | 0 |
-| Justicia Social Federal | 45 | 45 | 6 | 6 | 0 | 0 | 0 | 0 | 13 | 15 | 0 | 0 | 0 |
-| Justicialista | 735 | 716 | 51 | 56 | 12 | 11 | 10 | 12 | 121 | 129 | 21 | 3 | 37 |
-| La Libertad Avanza | 169 | 158 | 25 | 43 | 13 | 11 | 26 | 31 | 30 | 34 | 3 | 1 | 13 |
+| Justicia Social Federal | 45 | 45 | 6 | 6 | 0 | 0 | 0 | 0 | 13 | 23 | 0 | 0 | 0 |
+| Justicialista | 735 | 716 | 51 | 56 | 12 | 11 | 10 | 12 | 121 | 161 | 21 | 3 | 37 |
+| La Libertad Avanza | 169 | 158 | 25 | 43 | 13 | 11 | 26 | 31 | 30 | 35 | 3 | 1 | 13 |
 | La Neuquinidad | 36 | 36 | 2 | 2 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 0 | 0 |
 | Movere por Santa Cruz | 39 | 40 | 5 | 7 | 3 | 3 | 2 | 6 | 28 | 28 | 3 | 0 | 2 |
-| Movimiento por Misiones | 61 | 61 | 14 | 15 | 4 | 5 | 1 | 2 | 4 | 4 | 1 | 1 | 0 |
+| Movimiento por Misiones | 61 | 61 | 14 | 15 | 4 | 5 | 1 | 2 | 4 | 5 | 1 | 1 | 0 |
 | Primero los Salteños | 44 | 45 | 4 | 5 | 1 | 2 | 0 | 1 | 0 | 0 | 1 | 0 | 0 |
-| Provincias Unidas | 7 | 8 | 1 | 2 | 0 | 0 | 0 | 1 | 6 | 7 | 1 | 0 | 0 |
-| UCR - Unión Cívica Radical | 258 | 259 | 25 | 36 | 14 | 13 | 19 | 22 | 49 | 50 | 12 | 1 | 10 |
+| Provincias Unidas | 7 | 8 | 1 | 2 | 0 | 0 | 0 | 1 | 6 | 8 | 1 | 0 | 0 |
+| UCR - Unión Cívica Radical | 258 | 259 | 25 | 36 | 14 | 13 | 19 | 22 | 49 | 55 | 12 | 1 | 10 |
 
 «Aprobados» es la lista de proyectos aprobados por el Senado en sesiones de 2026 (cualquier año de presentación). Los cambios se explican por la atribución por carátula, por los 40 expedientes agregados y por la aprobación según la planilla (punto 8).
 
@@ -135,8 +135,8 @@ Las comisiones no difieren: se compararon ignorando el orden y el marcador «Sol
 
 ## 6. Proyectos que siguen sin bloque y casos sin autoría por carátula
 
-- **35 proyectos de 2025** (13 de ley, 20 de declaración, 2 de comunicación) son del exsenador Alfredo Luis De Angeli: figura en `senadores.json` como no vigente y sin bloque, así que su bloque es «Sin datos». No aparecen en ninguna página (y los de ley no entran en «Por caducar» porque no es senador vigente).
-- 227 proyectos de ley de 2025 tienen todos sus autores fuera del Senado: no cuentan para ningún bloque, según la regla acordada (en «Por caducar» solo cuentan los autores que siguen siendo senadores vigentes).
+- **35 proyectos de 2025** (13 de ley, 20 de declaración, 2 de comunicación) son del exsenador Alfredo Luis De Angeli: figura en `senadores.json` como no vigente y sin bloque, así que su bloque es «Sin datos». Sus proyectos de ley entran en «Por caducar» del bloque de los firmantes vigentes que los acompañan; los demás tipos no cuentan para ningún bloque.
+- 227 proyectos de ley de 2025 tienen todos los autores del prefijo fuera del Senado. Por decisión tomada en la revisión, cuentan para el bloque de los demás firmantes que siguen siendo senadores vigentes (los de ley, en «Por caducar»); si no hay ningún firmante vigente, no cuentan para ningún bloque. Para eso se guarda `firmantes_trazabilidad` (todos los firmantes de la planilla) en 938 registros.
 - Sin prefijo de autor en la carátula (no se calcula autoría; se usa el comportamiento anterior): S-1650/25 PC, S-668/25 CO, S-286/25 PC.
 - «Varios senadores» (sin cambios): S-112/26, S-1431/25.
 - Registros de origen S de 2026 que no están en la planilla (comunicaciones de comisiones y comunicaciones de senadores sin prefijo de autor, como S-1534, S-1406, S-1398, S-1388, S-1751, S-1684, S-1617 y S-1499): siguen atribuidos como antes, por el bloque de su primer firmante.
@@ -152,7 +152,8 @@ Las comisiones no difieren: se compararon ignorando el orden y el marcador «Sol
 
 1. **Aprobaciones según la planilla.** Hay 10 proyectos de 2026 y 3 de 2025 que la planilla marca como aprobados por el Senado (código AP, sesiones del 27-08-2026 y 17-09-2026) y que el Boletín de Novedades (`sanciones.json`, que se carga a mano; su última sesión cargada es la del 27-08-2026) no incluye: S-3, S-361, S-809, S-916, S-1035, S-1144, S-1239 y S-1246/26 (sesión del 17-09-2026) y S-252 y S-308/26 (sesión del 27-08-2026). Para que el cruce con la planilla dé cero diferencias, `generar_bloques.py` usa el AP de la planilla cuando el Boletín no lo tiene (constante `USAR_AP_TRAZABILIDAD`; en `False` vuelve al comportamiento anterior). Con eso también salen de «Por caducar» los proyectos de ley de 2025 con AP (media sanción): S-1271, S-1419 y S-1861/25. Afecta la pestaña Seguimiento (lista de aprobados) y los conteos.
 2. **Atribución en Seguimiento.** Las órdenes del día, preferencias y aprobados usan la misma atribución por carátula que Proyectos y Por caducar (si no, un proyecto contaría para un bloque en una pestaña y para otro en la otra). El diseño de la pestaña no cambia.
-3. **Textos de la página.** Se actualizaron las notas que decían «bloque de su primer autor» y se agregaron en «Cómo lo hacemos» la regla de atribución y la de reunión de comisión inferida.
+3. **Decisiones tomadas tras la primera revisión.** (a) Los proyectos de ley de 2025 cuyo prefijo nombra solo a ex senadores se incluyen en «Por caducar» del bloque de los firmantes vigentes (antes quedaban fuera de todo bloque: S-556, S-557, S-1003, S-1226, S-1255, S-1256 y S-1733/25 en Justicialista, entre otros). (b) Los proyectos con autores de varios bloques siguen contando en cada uno de ellos.
+4. **Textos de la página.** Se actualizaron las notas que decían «bloque de su primer autor» y se agregaron en «Cómo lo hacemos» la regla de atribución y la de reunión de comisión inferida.
 
 ## 9. Reunión de comisión inferida por orden del día
 

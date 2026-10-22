@@ -25,7 +25,8 @@ Las aplica `generar_bloques.py` (función `bloques_de_proyecto`) a los 14 bloque
   `scripts/autoria_caratula.py`); si un proyecto no los tiene, se usa el comportamiento anterior (primer autor).
 - **Proyectos del año en curso**: el bloque registrado al presentarlos. **«Por caducar», aprobados y órdenes del día
   de años anteriores**: el bloque actual de cada autor nombrado si sigue siendo senador/a vigente; si no, ese autor no
-  cuenta.
+  cuenta. Si ningún autor del prefijo sigue en el Senado, el proyecto cuenta para el bloque de los
+  demás firmantes que sí son senadores vigentes.
 - **Con reunión de comisión**: la agenda la registra o, si no, el proyecto tiene orden del día (Ayuda Memoria o
   planilla de trazabilidad), fecha de dictamen o fue aprobado por el Senado a partir de una orden del día. En ese caso
   la tarjeta no muestra fecha. Esos casos se listan en `data/reuniones_a_rastrear.json`, para buscar después en qué

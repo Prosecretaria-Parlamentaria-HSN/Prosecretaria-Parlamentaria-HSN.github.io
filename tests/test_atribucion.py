@@ -31,6 +31,11 @@ assert gb.bloques_de_proyecto(p3, senador_de) == ["LA LIBERTAD AVANZA"]
 p4 = {"origen": "S", "anio": 2025, "autores_caratula": ["FAMA, FLAVIO SERGIO", "DE ANGELI, ALFREDO LUIS"]}
 assert gb.bloques_de_proyecto(p4, senador_de) == ["UCR - UNIÓN CÍVICA RADICAL"]
 
+# prefijo solo de ex senadores: cuenta para el bloque de los firmantes vigentes
+p5 = {"origen": "S", "anio": 2025, "autores_caratula": ["DE ANGELI, ALFREDO LUIS"],
+      "autores": ["ABAD, MAXIMILIANO"], "coautores": ["FAMA, FLAVIO SERGIO", "ROJAS DECUT, SONIA ELIZABETH"]}
+assert gb.bloques_de_proyecto(p5, senador_de) == ["UCR - UNIÓN CÍVICA RADICAL", "MOVIMIENTO POR MISIONES"]
+
 # aprobación: Boletín primero, AP de la trazabilidad si falta
 assert gb.aprobacion_de({"badge_sancionado": {"fecha": "01/01/2026", "ley": "Ley 1"}})["ley"] == "Ley 1"
 assert gb.aprobacion_de({"sanciones_trazabilidad": [{"codigo": "AP", "fecha": "27/08/2026"}, {"codigo": "AP", "fecha": "17/09/2026"}]})["fecha"] == "17/09/2026"

@@ -225,6 +225,8 @@ def bloques_de_proyecto(p, senador_de):
     * Proyectos del año en curso: el bloque registrado al presentarlos (`bloques_caratula`).
     * Años anteriores (Por caducar, aprobados, órdenes del día): el bloque ACTUAL de cada
       autor nombrado si sigue siendo senador/a vigente; si ya no lo es, ese autor no cuenta.
+      Si ningún autor del prefijo sigue en el Senado, cuenta para el bloque de los demás
+      firmantes que sí son senadores/as vigentes.
     * Si el proyecto no tiene esos campos, comportamiento anterior: el bloque de su primer
       autor (registrado al presentar en el año en curso; actual en años anteriores).
     `senador_de(autor)` devuelve (nombre, datos) del senador vigente o None."""
@@ -241,6 +243,14 @@ def bloques_de_proyecto(p, senador_de):
         s = senador_de(a)
         if s:
             out.append(s[1].get("bloque"))
+    if not out and p.get("autores_caratula"):
+        # Todos los autores del prefijo dejaron el Senado: el proyecto cuenta para el bloque
+        # de los firmantes que siguen siendo senadores/as vigentes.
+        for f in (list(p.get("autores") or []) + list(p.get("coautores") or [])
+                  + list(p.get("firmantes_trazabilidad") or [])):
+            s = senador_de(f)
+            if s:
+                out.append(s[1].get("bloque"))
     return sin_repetir(out)
 
 
