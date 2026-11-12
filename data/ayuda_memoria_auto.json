@@ -3054,6 +3054,43 @@
     ]
   },
   {
+    "numero": "130",
+    "periodo": 2026,
+    "origen": "Senado",
+    "categoria": "Proyecto de Ley",
+    "autor": "Ledesma Abdala de Zamora y Zamora y Otros",
+    "descripcion": "Dictamen en el proyecto de ley de la señora senadora Ledesma Abdala de Zamora y en el del señor senador Zamora y Otros, por el que se transfiere a título gratuito a favor de la Universidad Nacional de Santiago del Estero, un inmueble propiedad del Estado Nacional, ubicado en la Ciudad Capital de la Provincia de Santiago del Estero. (S-94/25 y 342/26)",
+    "expedientes": [
+      {
+        "codigo": "S-94/25",
+        "url": "https://www.senado.gob.ar/parlamentario/comisiones/verExp/94.25/S/PL"
+      },
+      {
+        "codigo": "S-342/26",
+        "url": "https://www.senado.gob.ar/parlamentario/comisiones/verExp/342.26/S/PL"
+      }
+    ],
+    "comisionCabecera": "Asuntos Administrativos y Municipales",
+    "fechaDictamen": "17/06/2026",
+    "odLink": "https://www.senado.gob.ar/parlamentario/parlamentaria/51409/downloadOrdenDia",
+    "comisiones": [
+      "Asuntos Administrativos y Municipales",
+      "DE ASUNTOS ADMINISTRATIVOS Y MUNICIPALES"
+    ],
+    "tipoOD": "NORMAL",
+    "firmantesMayoria": [
+      "Daniel R. Kroneberger",
+      "Ana I. Marks",
+      "Mercedes G. Valenzuela",
+      "Sonia E. Rojas Decut",
+      "Sandra M. Mendoza",
+      "José E. Neder",
+      "Eduardo E. de Pedro",
+      "Cándida C. López",
+      "Gerardo Zamora"
+    ]
+  },
+  {
     "numero": "122",
     "periodo": 2026,
     "origen": "Senado",
