@@ -14,7 +14,7 @@ las cifras coinciden con las del sistema principal y cualquier corrección
 allá se refleja acá.
 
 Variables de entorno (todas opcionales):
-    HSN_SOURCE  carpeta del repo con data/ y scripts/generar_web.py
+    (los datos salen de data/ de este repo; ya no se lee el repo del sistema legislativo)
     HSN_OUT     carpeta de salida
     HSN_VOTACIONES  archivo votaciones.json (default: data/votaciones.json)
 
@@ -76,14 +76,66 @@ COLORES_BLOQUE = {
 # (`sanciones_trazabilidad`). Poner en False para volver a depender sólo del Boletín.
 USAR_AP_TRAZABILIDAD = True
 
-MINUSCULAS = {"de", "del", "la", "las", "los", "el", "y", "por", "en", "a", "e", "o"}
+MINUSCULAS = {"de", "del", "di", "la", "las", "los", "el", "y", "por", "en", "a", "e", "o"}
+# Grafía oficial de apellidos (listado del Senado): sin tilde / partículas en minúscula.
+GRAFIA = {"Royón": "Royon", "Moisés": "Moises", "Ávila": "Avila"}
+# Apellidos cuya grafía oficial lleva la partícula en minúscula (Tomás, informe 21/10).
+PARTICULAS_OFICIALES = {"De Pedro": "de Pedro", "Di Tullio": "di Tullio", "Monte De Oca": "Monte de Oca", "Del Carmen": "del Carmen"}
 SIGLAS = {"PRO", "UCR", "PJ", "PE", "HSN"}
 
 
 # ── Utilidades ───────────────────────────────────────────────────────────────
 
+def cargar_padron(gw):
+    """Padrón propio (data/senadores.json de este repo, lo mantiene padron_senadores.py).
+    Si no existe o está vacío, se usa el del repo del sistema legislativo."""
+    try:
+        propio = json.load(open(os.path.join(ROOT, "data", "senadores.json"), encoding="utf-8"))
+        if sum(1 for v in propio.values() if v.get("vigente")) >= 60:
+            return propio
+    except Exception:
+        pass
+    return gw._cargar("senadores.json", {})
+
+
+COMISIONES_EXTRA = ("Banca de la Mujer",)
+
+
+def cargar_comisiones_extra():
+    """Comisiones leídas directo del Senado por comisiones_senado.py que la fuente no incluye."""
+    try:
+        coms = json.load(open(os.path.join(ROOT, "data", "comisiones.json"), encoding="utf-8"))
+    except Exception:
+        return []
+    return [c for c in coms if c.get("nombre") in COMISIONES_EXTRA and c.get("miembros")]
+
+
+def cargar_bicamerales():
+    """Comisiones bicamerales leídas del Senado por bicamerales_senado.py (data/bicamerales.json)."""
+    try:
+        return json.load(open(os.path.join(ROOT, "data", "bicamerales.json"), encoding="utf-8"))
+    except Exception:
+        return []
+
+
+def construir_bicamerales(ctx, bloque):
+    """Cargos (presidente, vicepresidente, secretario) que ocupan senadores del bloque en las
+    comisiones bicamerales. Apartado aparte: la integran también diputados."""
+    out = []
+    for com in ctx.get("bicamerales", []):
+        for m in com.get("miembros", []):
+            rol = m.get("cargo") or ""
+            if (m.get("camara") == "SENADO" and not m.get("vacante") and rol
+                    and norm_bloque(m.get("bloque")) == norm_bloque(bloque)):
+                out.append({"comision": com["nombre"], "rol": rol, "senador": nombre_persona(m["nombre"]),
+                            "tipo": com.get("tipo", "")})
+    out.sort(key=lambda a: (a["rol"].split(" ")[0] != "Presidente", a["comision"]))
+    return out
+
+
 def cargar_gw():
-    ruta = os.path.join(SOURCE, "scripts", "generar_web.py")
+    # Núcleo propio (scripts/generar_web.py): lee SOLO los datos de este repo (data/).
+    ruta = os.path.join(HERE, "generar_web.py")
     spec = importlib.util.spec_from_file_location("generar_web", ruta)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
@@ -104,15 +156,20 @@ def titulo(s):
         elif i > 0 and w in MINUSCULAS:
             out.append(w)
         else:
-            out.append(w[:1].upper() + w[1:])
+            w = w[:1].upper() + w[1:]
+            out.append(GRAFIA.get(w, w))
     return " ".join(out)
 
 
 def nombre_persona(s):
-    """'GOERLING LARA, ENRIQUE MARTÍN' -> 'Enrique Martín Goerling Lara'."""
+    """'GOERLING LARA, ENRIQUE MARTÍN' -> 'Enrique Martín Goerling Lara'.
+    Grafía oficial (Royon, Moises, Avila)."""
     apellido, _, nombre = (s or "").partition(",")
     partes = (nombre.strip() + " " + apellido.strip()).strip().lower().split()
-    return " ".join(p[:1].upper() + p[1:] for p in partes)
+    out = " ".join(GRAFIA.get(p[:1].upper() + p[1:], p[:1].upper() + p[1:]) for p in partes)
+    for k, v in PARTICULAS_OFICIALES.items():
+        out = out.replace(k, v)
+    return out
 
 
 def slug_de(nombre_visible):
@@ -262,6 +319,39 @@ def cargar_votaciones():
         return {"anio": ANIO_ACTUAL, "actas": []}
 
 
+def completar_aprobacion_con_actas(proyectos, votaciones):
+    """Si un acta de votación aprobó una orden del día y la planilla de trazabilidad todavía no
+    marca aprobado a un proyecto del Senado de esa orden del día (sin AP, o AP sin fecha), se
+    agrega la aprobación con la fecha del acta. Fuente oficial: acta del Senado."""
+    aprobadas = {}
+    for a in votaciones.get("actas", []):
+        if a.get("resultado") != "AFIRMATIVO":
+            continue
+        for od in a.get("ods") or []:
+            aprobadas[(int(od.get("nro") or 0), int(od.get("anio") or 0))] = a.get("fecha")
+    n = 0
+    for p in proyectos:
+        if p.get("origen") != "S" or p.get("badge_sancionado"):
+            continue
+        if any(x.get("codigo") == "AP" and x.get("fecha") for x in (p.get("sanciones_trazabilidad") or [])):
+            continue
+        for od in p.get("od_trazabilidad") or []:
+            try:
+                k = (int(od.get("nro")), int(od.get("anio")))
+            except (TypeError, ValueError):
+                continue
+            f = aprobadas.get(k)
+            if f:
+                d, m, y = f.split("-")
+                p.setdefault("sanciones_trazabilidad", None)
+                p["sanciones_trazabilidad"] = (p["sanciones_trazabilidad"] or []) + [
+                    {"codigo": "AP", "fecha": f"{d}/{m}/{y}", "fuente": "acta"}]
+                n += 1
+                break
+    if n:
+        print(f"  Aprobaciones completadas con actas de votación: {n}")
+
+
 def agrupar_ayuda_memoria(am):
     """Una entrada por orden del día (la Ayuda Memoria repite la OD cuando tiene anexo)."""
     grupos = {}
@@ -327,10 +417,11 @@ def construir_contexto(gw):
     gw.cruzar_proyectos_od(proyectos, gw.construir_od())
     sanciones = gw.construir_sanciones()
     gw.cruzar_proyectos_sanciones(proyectos, sanciones)
+    completar_aprobacion_con_actas(proyectos, cargar_votaciones())
     gw.cruzar_proyectos_acuerdos(proyectos, gw._cargar("acuerdos.json", []))
     comisiones = gw.construir_comisiones(proyectos)
 
-    senadores = gw._cargar("senadores.json", {})
+    senadores = cargar_padron(gw)
     fotos = gw._cargar("fotos_senadores.json", {})
     fonts = gw._cargar("fonts_poppins.json", {})
 
@@ -411,6 +502,8 @@ def construir_contexto(gw):
         "senador_por_apellido": senador_por_apellido,
         "pertenece": pertenece,
         "aprobados_con_od": aprobados_con_od,
+        "comisiones_propias_extra": cargar_comisiones_extra(),
+        "bicamerales": cargar_bicamerales(),
         "rastrear": {},
         "sen_todos": sen_todos,
         "autor_sin_dato": set(),
@@ -428,7 +521,7 @@ def foto_base64(ctx, nombre_oficial):
     archivo = ctx["fotos"].get(nombre_oficial)
     if not archivo:
         return None
-    ruta = os.path.join(SOURCE, "data", "fotos", archivo)
+    ruta = os.path.join(ROOT, "data", "fotos", archivo)
     if not os.path.exists(ruta):
         return None
     with open(ruta, "rb") as f:
@@ -854,6 +947,20 @@ def construir_bloque(ctx, bloque, hoy):
                     "senador": nombre_persona(it["nombre"]),
                     "apellido": titulo(it["nombre"].partition(",")[0].strip()),
                 })
+    # Comisiones que la fuente no trae pero leemos directo del Senado (data/comisiones.json propio):
+    # Banca de la Mujer. Sólo se suman las que NO están ya en la fuente.
+    ya = {c["nombre"] for c in ctx["comisiones"]}
+    for com in ctx.get("comisiones_propias_extra", []):
+        if com["nombre"] in ya:
+            continue
+        for it in com.get("miembros", []):
+            if norm_bloque(it.get("bloque")) == norm_bloque(bloque) and it.get("rol") in ("Presidente", "Vicepresidente", "Secretario"):
+                autoridades.append({
+                    "comision": sin_prefijo_de(com["nombre"]),
+                    "rol": it["rol"],
+                    "senador": nombre_persona(it["nombre"]),
+                    "apellido": titulo(it["nombre"].partition(",")[0].strip()),
+                })
     orden_rol = {"Presidente": 0, "Vicepresidente": 1, "Secretario": 2}
     autoridades.sort(key=lambda a: (orden_rol[a["rol"]], a["comision"]))
 
@@ -881,8 +988,10 @@ def construir_bloque(ctx, bloque, hoy):
         "meses": meses,
         "comisiones": comisiones_out,
         "autoridades": autoridades,
+        "bicamerales": construir_bicamerales(ctx, bloque),
         "ods": ods,
         "preferencias": preferencias,
+        "preferencias_distintas": len({x["id"] for x in preferencias}),
         "por_caducar": por_caducar,
         "pc_con_avance": sum(1 for x in por_caducar if x["od"] or x["preferencia"] or x["reunion"]),
         "pc_mandato": sum(1 for x in por_caducar if x["mandato_cumplido"]),
@@ -898,6 +1007,9 @@ def _lista_es(partes):
     if len(partes) <= 1:
         return "".join(partes)
     return ", ".join(partes[:-1]) + " y " + partes[-1]
+
+
+_PARRAFO = "\u00b6"
 
 
 def construir_sintesis(d):
@@ -923,9 +1035,11 @@ def construir_sintesis(d):
     if m["preferencia"]:
         avances.append(f"{m['preferencia']} con preferencia")
     if m["aprobado"]:
-        avances.append(f"{m['aprobado']} aprobados por el Senado")
+        avances.append(f"{m['aprobado']} {'aprobado' if m['aprobado'] == 1 else 'aprobados'} por el Senado")
     if m["con_movimiento"]:
-        frases.append(f"{m['con_movimiento']} de ellos registran algún avance: {_lista_es(avances)}.")
+        n = m['con_movimiento']
+        frases.append(f"{n} de esos proyectos {'registra' if n == 1 else 'registran'} algún avance: {_lista_es(avances)}.")
+    frases.append(_PARRAFO)
     if d["aprobados"]:
         n = len(d["aprobados"])
         frases.append(f"El Senado aprobó {n} {'proyecto' if n == 1 else 'proyectos'} del bloque en sesiones de {t}.")
@@ -933,22 +1047,30 @@ def construir_sintesis(d):
     if d["ods"]:
         extra.append(f"{len(d['ods'])} {'orden del día' if len(d['ods']) == 1 else 'órdenes del día'} con proyectos del bloque en la Ayuda Memoria")
     if d["preferencias"]:
-        extra.append(f"{len(d['preferencias'])} {'preferencia' if len(d['preferencias']) == 1 else 'preferencias'} en sesiones de {t}")
+        npf = d["preferencias_distintas"]
+        extra.append(f"{npf} {'proyecto con preferencia' if npf == 1 else 'proyectos con preferencia'} en sesiones de {t}")
     if extra:
         frases.append("Hay " + _lista_es(extra) + ".")
+    frases.append(_PARRAFO)
     if d["por_caducar"]:
         n = len(d["por_caducar"])
         mc = d.get("pc_mandato", 0)
         frases.append(f"Además, hay {n} {'proyecto de ley de' if n == 1 else 'proyectos de ley de'} {t - 1} de senadores y senadoras del bloque "
                       f"{'próximo' if n == 1 else 'próximos'} a caducar"
                       + (f", {mc} de ellos de autores con mandato cumplido." if mc else "."))
+    frases.append(_PARRAFO)
     if d["comisiones"]:
         top = [c["nombre"] for c in d["comisiones"][:2]]
         frases.append(f"Los proyectos del año se giraron a {len(d['comisiones'])} comisiones, con mayor volumen en {_lista_es(top)}.")
     pres = [a["comision"] for a in d["autoridades"] if a["rol"] == "Presidente"]
     if pres:
         frases.append(f"El bloque preside {'la comisión' if len(pres) == 1 else 'las comisiones'} {_lista_es(pres)}.")
-    return " ".join(frases)
+    # párrafos: producción y avance / aprobados y seguimiento / por caducar / comisiones
+    texto = " ".join(frases)
+    while "  " in texto:
+        texto = texto.replace("  ", " ")
+    partes = [x.strip() for x in texto.split(_PARRAFO)]
+    return "\n\n".join(x for x in partes if x)
 
 
 
@@ -975,6 +1097,60 @@ main{border-left:6px solid #1B5EA2;padding:8px 24px}h1{color:#1B5EA2;margin:0 0 
 """
 
 
+def _texto_sobre(color):
+    """Color de texto legible (oscuro o blanco) sobre un fondo hexadecimal."""
+    h = color.lstrip("#")
+    r, g, b = (int(h[i:i + 2], 16) for i in (0, 2, 4))
+    return "#1B2A3A" if (0.299 * r + 0.587 * g + 0.114 * b) > 150 else "#FFFFFF"
+
+
+def render_portada(bloques):
+    """Página de entrada: un botón por bloque, con su color. Al elegir uno se abre su página y no
+    queda enlace de vuelta (cada bloque ve sólo lo suyo). `location.replace` saca la portada del
+    historial del navegador. Lista de (slug, nombre, color)."""
+    # BASE_URL (ej. https://prosecretaria-parlamentaria-hsn.github.io/): con ella
+    # la portada funciona suelta, aun descargada; sin ella usa rutas relativas.
+    base = os.environ.get("BASE_URL", "").strip()
+    if base and not base.endswith("/"):
+        base += "/"
+    botones = "\n".join(
+        '<a class="bt" href="%s%s/index.html" onclick="location.replace(this.href);return false">'
+        '<i style="background:%s"></i><span>%s</span><b aria-hidden="true">&rarr;</b></a>' % (base, slug, color, nombre)
+        for slug, nombre, color in bloques)
+    return """<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Seguimiento legislativo por bloque</title>
+<style>
+:root{--ink:#14233A;--muted:#6B7788;--line:#E3E7EE;--bg:#FAFBFC;--accent:#1B5EA2}
+*{box-sizing:border-box}
+body{font-family:Poppins,'Segoe UI',Calibri,sans-serif;background:var(--bg);color:var(--ink);margin:0;min-height:100vh;
+display:flex;flex-direction:column}
+main{width:100%;max-width:760px;margin:0 auto;padding:72px 24px 40px;flex:1}
+.kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 14px}
+h1{font-size:30px;line-height:1.2;font-weight:600;letter-spacing:-.01em;margin:0 0 10px}
+.sub{font-size:15px;color:var(--muted);margin:0 0 44px;line-height:1.5}
+.lista{display:grid;grid-template-columns:1fr 1fr;column-gap:40px;border-top:1px solid var(--line)}
+.bt{display:flex;align-items:center;gap:14px;padding:16px 4px;border-bottom:1px solid var(--line);
+color:var(--ink);text-decoration:none;font-size:15.5px;font-weight:500;transition:padding .15s,color .15s}
+.bt i{width:10px;height:10px;border-radius:50%;flex:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.14)}
+.bt span{flex:1;line-height:1.3}
+.bt b{font-weight:400;color:var(--muted);opacity:0;transform:translateX(-6px);transition:opacity .15s,transform .15s}
+.bt:hover,.bt:focus{padding-left:12px;color:var(--accent);outline:none}
+.bt:hover b,.bt:focus b{opacity:1;transform:none}
+footer{font-size:12px;color:var(--muted);text-align:center;padding:0 24px 28px}
+@media(max-width:620px){main{padding:44px 20px 28px}h1{font-size:25px}.lista{grid-template-columns:1fr}.bt b{opacity:1;transform:none}}
+</style></head>
+<body><main>
+<p class="kicker">Prosecretar&iacute;a Parlamentaria &middot; Senado de la Naci&oacute;n</p>
+<h1>Seguimiento legislativo por bloque</h1>
+<p class="sub">Eleg&iacute; tu bloque para ver sus proyectos, reuniones de comisi&oacute;n y votaciones.</p>
+<div class="lista">
+""" + botones + """
+</div></main>
+<footer>Informaci&oacute;n p&uacute;blica del Senado de la Naci&oacute;n, procesada autom&aacute;ticamente.</footer></body></html>
+"""
+
+
 def main():
     gw = cargar_gw()
     ctx = construir_contexto(gw)
@@ -990,6 +1166,7 @@ def main():
         f.write("User-agent: *\nDisallow: /\n")
 
     resumen = []
+    portada = []
     for bloque in bloques:
         slug = slug_de(titulo(bloque))
         if pedidos and slug not in pedidos:
@@ -1000,10 +1177,13 @@ def main():
         os.makedirs(carpeta, exist_ok=True)
         with open(os.path.join(carpeta, "index.html"), "w", encoding="utf-8") as f:
             f.write(html)
+        portada.append((slug, datos["bloque"], datos["color"]))
         resumen.append((slug, len(datos["senadores"]), datos["total"],
                         datos["movimiento"]["con_movimiento"], len(html) / 1024))
 
     if not pedidos:
+        with open(os.path.join(OUT, "index.html"), "w", encoding="utf-8") as f:
+            f.write(render_portada(portada))
         carpeta_datos = os.path.join(OUT, "data")
         os.makedirs(carpeta_datos, exist_ok=True)
         lista = sorted(ctx["rastrear"].values(), key=lambda e: e["id"])

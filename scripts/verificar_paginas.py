@@ -1,0 +1,240 @@
+#!/usr/bin/env python3
+"""verificar_paginas.py — chequeos de cordura de las 14 páginas por bloque, después de generarlas.
+
+Lee la variable `B` de cada <bloque>/index.html y la compara con reglas simples y con la
+versión anterior publicada (git HEAD). Si algo es grave sale con código 1, y el workflow NO
+publica (las páginas ya publicadas quedan como estaban). Los avisos leves sólo se informan.
+
+    python scripts/verificar_paginas.py [carpeta_de_salida]      (por defecto: .)
+Variable: CAIDA_MAX (por defecto 0.30) = caída máxima tolerada de proyectos entre corridas.
+"""
+import json
+import os
+import subprocess
+import sys
+
+OUT = sys.argv[1] if len(sys.argv) > 1 else "."
+CAIDA_MAX = float(os.getenv("CAIDA_MAX", "0.30"))
+ESPERADOS = 14
+
+
+def leer_B(html):
+    i = html.index("var B =") + 7
+    j = html.index("\n", i)
+    return json.loads(html[i:j].rstrip().rstrip(";"))
+
+
+def previo(slug):
+    try:
+        h = subprocess.run(["git", "show", "HEAD:%s/index.html" % slug], cwd=OUT, capture_output=True,
+                           text=True, encoding="utf-8", check=True).stdout
+        return leer_B(h)
+    except Exception:
+        return None
+
+
+def cruce_actas(avisos, en_paginas, aprobados_pag):
+    """Cruce de control: cada orden del día aprobada en un acta de votación (EN GENERAL) debe
+    tener sus proyectos del Senado marcados como aprobados. Sólo avisa."""
+    raiz = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    fuente = os.environ.get("HSN_SOURCE", os.path.join(raiz, "source"))
+    try:
+        actas = json.load(open(os.path.join(raiz, "data", "votaciones.json"), encoding="utf-8"))["actas"]
+        proy = json.load(open(os.path.join(raiz, "data", "proyectos.json"), encoding="utf-8"))
+        proy = proy if isinstance(proy, list) else proy.get("proyectos", [])
+    except Exception as e:
+        avisos.append("Cruce con actas omitido (%s)" % e)
+        return 0
+    aprobadas = {}
+    for a in actas:
+        if a.get("resultado") != "AFIRMATIVO":
+            continue
+        for od in a.get("ods") or []:
+            aprobadas[(od.get("nro"), od.get("anio"))] = a.get("fecha")
+    n = 0
+    for p in proy:
+        if p.get("origen") != "S":
+            continue
+        for od in p.get("od_trazabilidad") or []:
+            k = (od.get("nro"), od.get("anio"))
+            if k not in aprobadas:
+                continue
+            eid = "S-%s/%02d" % (p.get("nro"), int(p.get("anio")) % 100)
+            if eid in en_paginas and eid not in aprobados_pag:
+                avisos.append("Acta del %s aprobó la OD %s/%s pero S-%s/%s no figura como aprobado"
+                              % (aprobadas[k], k[0], k[1], p.get("nro"), p.get("anio")))
+            n += 1
+    print("Cruce con actas: %d proyectos del Senado en órdenes del día aprobadas revisados." % n)
+    return n
+
+
+def comparar_comisiones(avisos):
+    """Modo sombra: compara las comisiones propias (leídas del Senado) con las de la fuente.
+    Sólo avisa diferencias de presidencia o de integrantes."""
+    raiz = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    fuente = os.environ.get("HSN_SOURCE", os.path.join(raiz, "source"))
+    try:
+        propias = json.load(open(os.path.join(raiz, "data", "comisiones.json"), encoding="utf-8"))
+        ajenas = json.load(open(os.path.join(fuente, "data", "comisiones.json"), encoding="utf-8"))
+    except Exception:
+        return
+    aj = {c["nombre"]: c for c in ajenas}
+
+    def pres(c):
+        return sorted(m["nombre"] for m in c.get("miembros", []) if m.get("rol") == "Presidente")
+
+    for c in propias:
+        o = aj.get(c["nombre"])
+        if o is None:
+            avisos.append("Comisión sólo en la lectura propia: %s (presidencia: %s)"
+                          % (c["nombre"], ", ".join(pres(c)) or "sin dato"))
+            continue
+        if pres(c) != pres(o):
+            avisos.append("%s: presidencia distinta (propia: %s / fuente: %s)"
+                          % (c["nombre"], ", ".join(pres(c)) or "-", ", ".join(pres(o)) or "-"))
+        a = {m["nombre"] for m in c.get("miembros", [])}
+        b = {m["nombre"] for m in o.get("miembros", [])}
+        if a != b:
+            avisos.append("%s: integrantes distintos (+%d / -%d)" % (c["nombre"], len(a - b), len(b - a)))
+
+
+def comparar_agenda_od(avisos):
+    """Modo sombra: compara la agenda y las órdenes del día propias con las de la fuente.
+    Sólo avisa diferencias (reuniones y OD que están de un lado y no del otro)."""
+    raiz = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    fuente = os.environ.get("HSN_SOURCE", os.path.join(raiz, "source"))
+
+    def cargar(base, nombre):
+        try:
+            return json.load(open(os.path.join(base, "data", nombre), encoding="utf-8"))
+        except Exception:
+            return None
+
+    def reuniones(d):
+        lst = d.get("reuniones", []) if isinstance(d, dict) else d
+        return {(r.get("fecha"), r.get("hora"), str(r.get("comisiones"))) for r in lst}
+
+    pa, fa = cargar(raiz, "agenda.json"), cargar(fuente, "agenda.json")
+    if pa is not None and fa is not None:
+        a, b = reuniones(pa), reuniones(fa)
+        if a != b:
+            avisos.append("Agenda: reuniones distintas (sólo propia: %d / sólo fuente: %d)" % (len(a - b), len(b - a)))
+    po, fo = cargar(raiz, "od.json"), cargar(fuente, "od.json")
+    if po is not None and fo is not None:
+        k = lambda lst: {(o.get("nro_od"), o.get("anio_od"), o.get("tipo_od")) for o in lst}
+        a, b = k(po), k(fo)
+        if a != b:
+            avisos.append("Órdenes del día distintas (sólo propias: %d / sólo fuente: %d)" % (len(a - b), len(b - a)))
+
+
+def comparar_proyectos(avisos):
+    """Modo sombra: compara los proyectos propios (leídos del Senado) con los de la fuente.
+    Avisa los que están de un lado y no del otro, y diferencias de estado en los que están en ambos."""
+    raiz = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    fuente = os.environ.get("HSN_SOURCE", os.path.join(raiz, "source"))
+    try:
+        propios = json.load(open(os.path.join(raiz, "data", "proyectos.json"), encoding="utf-8"))
+        ajenos = json.load(open(os.path.join(fuente, "data", "proyectos.json"), encoding="utf-8"))
+    except Exception:
+        return
+    k = lambda p: (p.get("origen"), p.get("nro"), p.get("anio"), p.get("tipo"))
+    a = {k(p): p for p in propios}
+    b = {k(p): p for p in ajenos}
+    solo_a, solo_b = set(a) - set(b), set(b) - set(a)
+    if solo_a or solo_b:
+        avisos.append("Proyectos: sólo en la lectura propia %d / sólo en la fuente %d" % (len(solo_a), len(solo_b)))
+        for x in sorted(solo_b, key=str)[:5]:
+            avisos.append("  falta en la lectura propia: %s %s/%s %s" % (x[0], x[1], x[2], x[3]))
+    for campo in ("archivado", "sancionado", "fecha", "bloques"):
+        n = sum(1 for x in set(a) & set(b) if a[x].get(campo) != b[x].get(campo))
+        if n:
+            avisos.append("Proyectos: %d con '%s' distinto entre la lectura propia y la fuente" % (n, campo))
+
+
+def comparar_ayuda_memoria(avisos):
+    """Modo sombra: compara la Ayuda Memoria propia (armada del Senado) con la de la fuente."""
+    raiz = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    fuente = os.environ.get("HSN_SOURCE", os.path.join(raiz, "source"))
+    try:
+        propia = json.load(open(os.path.join(raiz, "data", "ayuda_memoria_auto.json"), encoding="utf-8"))
+        ajena = json.load(open(os.path.join(fuente, "data", "ayuda_memoria.json"), encoding="utf-8"))
+    except Exception:
+        return
+    k = lambda f: (f.get("periodo"), str(f.get("numero")), f.get("tipoOD"))
+    a = {k(f): f for f in propia}
+    b = {k(f): f for f in ajena if f.get("periodo") == 2026}
+    solo_a, solo_b = set(a) - set(b), set(b) - set(a)
+    if solo_a or solo_b:
+        avisos.append("Ayuda Memoria: sólo en la propia %d / sólo en la fuente %d" % (len(solo_a), len(solo_b)))
+        for x in sorted(solo_a, key=str)[:5]:
+            avisos.append("  sólo en la propia: OD %s %s" % (x[1], x[2] or ""))
+        for x in sorted(solo_b, key=str)[:5]:
+            avisos.append("  falta en la propia: OD %s %s" % (x[1], x[2] or ""))
+    norm = lambda v: sorted(str(i) for i in v) if isinstance(v, list) else v
+    for campo in ("comisionCabecera", "fechaDictamen", "descripcion", "firmantesMayoria", "expedientes"):
+        difs = sorted((x for x in set(a) & set(b) if norm(a[x].get(campo)) != norm(b[x].get(campo))), key=str)
+        if difs:
+            avisos.append("Ayuda Memoria: %d con '%s' distinto entre la propia y la fuente" % (len(difs), campo))
+            for x in difs[:3]:
+                va, vb = norm(a[x].get(campo)), norm(b[x].get(campo))
+                if isinstance(va, list) and isinstance(vb, list):
+                    detalle = "sólo propia %s / sólo fuente %s" % (sorted(set(va) - set(vb)), sorted(set(vb) - set(va)))
+                else:
+                    detalle = "propia %s / fuente %s" % (str(va)[:60], str(vb)[:60])
+                avisos.append("  OD %s %s: %s" % (x[1], x[2] or "", detalle))
+
+
+def main():
+    graves, avisos = [], []
+    slugs = sorted(d for d in os.listdir(OUT) if os.path.isfile(os.path.join(OUT, d, "index.html"))
+                   and d not in ("source", "salida"))
+    paginas = {}
+    for s in slugs:
+        try:
+            paginas[s] = leer_B(open(os.path.join(OUT, s, "index.html"), encoding="utf-8").read())
+        except Exception:
+            continue  # no es página de bloque
+    if len(paginas) != ESPERADOS:
+        graves.append("Se esperaban %d páginas de bloque y hay %d" % (ESPERADOS, len(paginas)))
+    for s, b in paginas.items():
+        n = b["bloque"]
+        if not b["senadores"]:
+            graves.append("%s: sin senadores" % n)
+        ids = [p["id"] for p in b["proyectos"]]
+        if len(ids) != len(set(ids)):
+            graves.append("%s: proyectos repetidos en el listado" % n)
+        if b["total"] != len(ids):
+            graves.append("%s: el total (%s) no coincide con el listado (%s)" % (n, b["total"], len(ids)))
+        apr = {a["id"] for a in b["aprobados"]}
+        mal = sorted(apr & {x["id"] for x in b["por_caducar"]})
+        if mal:
+            graves.append("%s: aprobados que figuran como por caducar: %s" % (n, ", ".join(mal)))
+        if len({x["id"] for x in b["aprobados"]}) != len(b["aprobados"]):
+            avisos.append("%s: aprobados repetidos" % n)
+        for x in b["senadores"]:
+            if not x.get("provincia"):
+                avisos.append("%s: senador/a sin provincia: %s" % (n, x.get("nombre", "?")))
+        pv = previo(s)
+        if pv and pv.get("total"):
+            caida = 1 - b["total"] / pv["total"]
+            if caida > CAIDA_MAX:
+                graves.append("%s: los proyectos bajaron de %s a %s (%.0f%%)" % (n, pv["total"], b["total"], caida * 100))
+            if len(pv["senadores"]) != len(b["senadores"]):
+                avisos.append("%s: cambió la cantidad de senadores (%s → %s)" % (n, len(pv["senadores"]), len(b["senadores"])))
+    en_pag = {x["id"] for b in paginas.values() for x in b["proyectos"]}
+    apr_pag = {x["id"] for b in paginas.values() for x in b["aprobados"]}
+    cruce_actas(avisos, en_pag, apr_pag)
+    comparar_comisiones(avisos)
+    comparar_agenda_od(avisos)
+    comparar_proyectos(avisos)
+    comparar_ayuda_memoria(avisos)
+    for a in avisos:
+        print("AVISO  " + a)
+    for g in graves:
+        print("::error::GRAVE  " + g)
+    print("Verificación: %d páginas, %d graves, %d avisos." % (len(paginas), len(graves), len(avisos)))
+    return 1 if graves else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
