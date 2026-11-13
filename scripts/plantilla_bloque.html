@@ -273,7 +273,6 @@ tr:nth-child(even) td{background:#FAFBFC}
   <section class="panel" id="p-proyectos" role="tabpanel" hidden></section>
   <section class="panel" id="p-votaciones" role="tabpanel" hidden></section>
   <section class="panel" id="p-sencom" role="tabpanel" hidden><div id="p-senadores"></div><div id="p-comisiones"></div></section>
-  <section class="panel" id="p-metodo" role="tabpanel" hidden></section>
 </div></main>
 
 <div id="pantalla" hidden role="dialog" aria-modal="true" aria-label="Modo pantalla"></div>
@@ -675,26 +674,6 @@ function renderComisiones(){
   $('p-comisiones').innerHTML=h;
 }
 
-/* ── Cómo lo hacemos ────────────────────────────────────── */
-function renderMetodo(){
-  var h='<h2>Cómo hacemos este seguimiento</h2>'
-  +'<p style="margin-top:10px">Esta página forma parte del Sistema Legislativo de la Prosecretaría Parlamentaria, que monitorea todos los días la actividad del Senado y la organiza para que sea fácil de consultar.</p>'
-  +'<h3>Qué datos usamos</h3>'
-  +'<p>Información pública del sitio oficial del Senado: expedientes y proyectos ingresados, integración de comisiones, boletines de agenda de comisiones, órdenes del día y Ayuda Memoria, Boletín de Novedades y actas de votación.</p>'
-  +'<h3>Cada cuánto se actualiza</h3>'
-  +'<p>Dos veces por día, de forma automática. La fecha y hora de la última actualización figuran al pie de cada página.</p>'
-  +'<h3>Cómo se asignan los proyectos al bloque</h3>'
-  +'<p>La autoría se toma del encabezado de la carátula del expediente (el nombre que figura antes de los dos puntos). Un proyecto se cuenta para cada senador o senadora nombrado y para el bloque de cada uno, una sola vez por bloque; si dice «y otros», cuentan solo los nombrados. Se usa siempre el bloque actual de cada autor: si un senador cambia de bloque, sus proyectos pasan al nuevo. Si el autor ya no es senador o senadora no aporta bloque; si todos los autores nombrados dejaron el Senado, el proyecto cuenta para el bloque de los demás firmantes que siguen en el cargo. Si lo firman integrantes de otros bloques, la ficha indica «También figura en».</p>'
-  +'<h3>Cuándo un proyecto figura con reunión de comisión</h3>'
-  +'<p>Cuando la agenda de comisiones registra una reunión con el proyecto en el temario o, si no la registra, cuando el proyecto tiene orden del día o fecha de dictamen, porque el dictamen se firma en una reunión de comisión. En ese caso la ficha dice «Reunión de comisión» sin fecha.</p>'
-  +'<h3>Qué votaciones se muestran</h3>'
-  +'<p>Las votaciones en general de '+B.anio+', con los votos afirmativos, negativos y abstenciones del bloque. No se incluyen las votaciones en particular.</p>'
-  +'<h3>Dónde interviene la inteligencia artificial</h3>'
-  +'<p>Esta página fue generada con inteligencia artificial. La Prosecretaría desarrolló, con asistencia de IA, las herramientas que recolectan, cruzan y ordenan la información pública del Senado, y el texto de síntesis del Resumen se redacta automáticamente a partir de las cifras. Ante cualquier duda, se recomienda consultar la fuente oficial.</p>'
-  +'<div class="nota">Prosecretaría Parlamentaria · Senado de la Nación Argentina.</div>';
-  $('p-metodo').innerHTML=h;
-}
-
 /* ── Modo pantalla (láminas) ────────────────────────────── */
 var PN={i:0,slides:null,abierto:false};
 function pnFila(k,t,chip){return '<div class="pn-fila"><div class="k">'+esc(k)+'</div><div class="t">'+esc(t)+'</div>'+(chip?'<span class="pn-chip">'+esc(chip)+'</span>':'')+'</div>';}
@@ -816,10 +795,10 @@ function cerrarPantalla(){
 function renderSenCom(){renderSenadores();renderComisiones();}
 
 /* ── Arranque ───────────────────────────────────────────── */
-var SECCIONES=[['resumen','Resumen'],['seguimiento','Seguimiento'],['proyectos','Proyectos '+B.anio],['votaciones','Votaciones'],['sencom','Senadores y comisiones'],['metodo','Cómo lo hacemos']];
+var SECCIONES=[['resumen','Resumen'],['seguimiento','Seguimiento'],['proyectos','Proyectos '+B.anio],['votaciones','Votaciones'],['sencom','Senadores y comisiones']];
 var ALIAS={ods:['seguimiento','ods'],preferencias:['seguimiento','preferencias'],aprobados:['seguimiento','aprobados'],caducar:['seguimiento','caducar'],senadores:['sencom',''],comisiones:['sencom','']};
 var hechos={};
-var render={resumen:renderResumen,seguimiento:renderSeguimiento,proyectos:renderProyectos,votaciones:renderVotaciones,sencom:renderSenCom,metodo:renderMetodo};
+var render={resumen:renderResumen,seguimiento:renderSeguimiento,proyectos:renderProyectos,votaciones:renderVotaciones,sencom:renderSenCom};
 function mostrar(id,sub){
   SECCIONES.forEach(function(s){
     var activo=s[0]===id;

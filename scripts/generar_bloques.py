@@ -1138,6 +1138,17 @@ color:var(--ink);text-decoration:none;font-size:15.5px;font-weight:500;transitio
 .bt:hover,.bt:focus{padding-left:12px;color:var(--accent);outline:none}
 .bt:hover b,.bt:focus b{opacity:1;transform:none}
 footer{font-size:12px;color:var(--muted);text-align:center;padding:0 24px 28px}
+.como{margin:34px 0 0;text-align:center}
+.como button{font:inherit;font-size:14px;font-weight:600;color:var(--accent);background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:10px 18px;cursor:pointer}
+.como button:hover,.como button:focus{border-color:var(--accent);background:#EEF4FB;outline:none}
+.vel{position:fixed;inset:0;background:rgba(20,35,58,.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:10}
+.vel.on{display:flex}
+.caja{background:#fff;border-radius:16px;max-width:520px;width:100%;max-height:88vh;overflow:auto;padding:26px 28px 22px;box-shadow:0 30px 60px -20px rgba(0,0,0,.35)}
+.caja h2{font-size:19px;margin:0 0 4px;font-weight:600}
+.caja .lead{font-size:13.5px;color:var(--muted);margin:0 0 16px;line-height:1.5}
+.caja dl{margin:0}.caja dt{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:14px 0 3px}
+.caja dd{margin:0;font-size:14px;line-height:1.55}
+.caja .cerrar{display:block;margin:20px 0 0 auto;font:inherit;font-size:13.5px;font-weight:600;color:#fff;background:var(--accent);border:0;border-radius:8px;padding:9px 18px;cursor:pointer}
 @media(max-width:620px){main{padding:44px 20px 28px}h1{font-size:25px}.lista{grid-template-columns:1fr}.bt b{opacity:1;transform:none}}
 </style></head>
 <body><main>
@@ -1146,7 +1157,25 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding:0 24px 28px}
 <p class="sub">Eleg&iacute; tu bloque para ver sus proyectos, reuniones de comisi&oacute;n y votaciones.</p>
 <div class="lista">
 """ + botones + """
-</div></main>
+</div>
+<div class="como"><button type="button" id="como-btn">&#9432; &iquest;C&oacute;mo lo hacemos?</button></div></main>
+<div class="vel" id="como-vel" role="dialog" aria-modal="true" aria-labelledby="como-t"><div class="caja">
+<h2 id="como-t">&iquest;C&oacute;mo lo hacemos?</h2>
+<p class="lead">Seguimiento diario de la actividad del Senado, organizado por bloque.</p>
+<dl>
+<dt>Qu&eacute; datos usamos</dt><dd>Informaci&oacute;n p&uacute;blica de senado.gob.ar: proyectos, comisiones, agenda, &oacute;rdenes del d&iacute;a, Boletín de Novedades y votaciones.</dd>
+<dt>Cada cu&aacute;nto se actualiza</dt><dd>Dos veces por d&iacute;a, de forma autom&aacute;tica. La &uacute;ltima actualizaci&oacute;n figura al pie de cada p&aacute;gina.</dd>
+<dt>C&oacute;mo se asignan los proyectos</dt><dd>Por la autor&iacute;a de la car&aacute;tula del expediente: cuenta para cada senador/a nombrado y para el bloque de cada uno.</dd>
+<dt>Inteligencia artificial</dt><dd>Las p&aacute;ginas se generan con herramientas desarrolladas con asistencia de IA. El texto de s&iacute;ntesis se redacta autom&aacute;ticamente a partir de los datos y no reemplaza la fuente oficial.</dd>
+</dl>
+<button type="button" class="cerrar" id="como-x">Cerrar</button></div></div>
+<script>
+(function(){var v=document.getElementById("como-vel");
+document.getElementById("como-btn").onclick=function(){v.classList.add("on")};
+document.getElementById("como-x").onclick=function(){v.classList.remove("on")};
+v.onclick=function(e){if(e.target===v)v.classList.remove("on")};
+document.addEventListener("keydown",function(e){if(e.key==="Escape")v.classList.remove("on")});})();
+</script>
 <footer>Informaci&oacute;n p&uacute;blica del Senado de la Naci&oacute;n, procesada autom&aacute;ticamente.</footer></body></html>
 """
 
