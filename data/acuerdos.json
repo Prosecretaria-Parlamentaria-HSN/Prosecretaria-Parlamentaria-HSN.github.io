@@ -17,8 +17,8 @@
     "caratula": "MENSAJE N° 315/26 QUE SOLICITA ACUERDO PARA DESIGNAR VOCAL DE LA CAMARA NACIONAL DE CASACION EN LO CRIMINAL Y CORRECCIONAL DE LA CAPITAL FEDERAL, VOCALIA N° 7, AL DR. DANIEL EDUARDO RAFECAS.",
     "origen": "PE",
     "dae": 34,
-    "dado_cuenta": false,
-    "fecha_dado_cuenta": null,
+    "dado_cuenta": true,
+    "fecha_dado_cuenta": "19/11/2026",
     "aprobado": false,
     "fecha_aprobacion": null,
     "nro_od": null
