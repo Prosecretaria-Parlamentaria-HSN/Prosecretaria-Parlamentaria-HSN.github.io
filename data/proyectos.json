@@ -27,6 +27,50 @@
     "_ultima_revision": "2026-11-20"
   },
   {
+    "nro": 2044,
+    "anio": 2026,
+    "tipo": "PL",
+    "tipo_label": "Proyecto de Ley",
+    "extracto": "PROYECTO DE LEY DE COMBATE CONTRA EL JUEGO ILEGAL.",
+    "autores": [
+      "BULLRICH, PATRICIA"
+    ],
+    "coautores": [
+      "VISCHI, EDUARDO ALEJANDRO",
+      "ROYON, FLAVIA GABRIELA",
+      "LOSADA, CAROLINA"
+    ],
+    "bloques": [
+      "LA LIBERTAD AVANZA"
+    ],
+    "provincias": [
+      "CIUDAD AUTÓNOMA DE BUENOS AIRES"
+    ],
+    "comisiones": [
+      "DE SALUD",
+      "DE LEGISLACIÓN GENERAL",
+      "DE JUSTICIA Y ASUNTOS PENALES"
+    ],
+    "fecha": "25/11/2026",
+    "dae": "92/2026",
+    "origen": "S",
+    "url": "https://www.senado.gob.ar/parlamentario/comisiones/verExp/2044.26/S/PL",
+    "sancionado": false,
+    "ley_numero": null,
+    "fecha_ley": null,
+    "archivado": false,
+    "fecha_archivo": null,
+    "caduca": false,
+    "fecha_caduca": null,
+    "_ultima_revision": "2026-11-26",
+    "autores_caratula": [
+      "BULLRICH, PATRICIA"
+    ],
+    "bloques_caratula": [
+      "LA LIBERTAD AVANZA"
+    ]
+  },
+  {
     "nro": 2035,
     "anio": 2026,
     "tipo": "PD",
@@ -41090,7 +41134,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "LINARES, CARLOS ALBERTO"
     ],
@@ -41128,7 +41172,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "VISCHI, EDUARDO ALEJANDRO"
     ],
@@ -41167,7 +41211,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "VISCHI, EDUARDO ALEJANDRO"
     ],
@@ -41205,7 +41249,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "LEWANDOWSKI, MARCELO NÉSTOR"
     ],
@@ -41243,7 +41287,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "CORPACCI, LUCÍA BENIGNA"
     ],
@@ -41281,7 +41325,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GUZMÁN CORAITA, GONZALO"
     ],
@@ -41319,7 +41363,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "FERNÁNDEZ SAGASTI, ANABEL"
     ],
@@ -41365,7 +41409,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "FERNÁNDEZ SAGASTI, ANABEL"
     ],
@@ -41405,7 +41449,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "JUEZ, LUIS ALFREDO"
     ],
@@ -41443,7 +41487,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "MENDOZA, SANDRA MARIELA"
     ],
@@ -41481,7 +41525,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "MENDOZA, SANDRA MARIELA"
     ],
@@ -41519,7 +41563,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "MENDOZA, SANDRA MARIELA"
     ],
@@ -41557,7 +41601,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "REJAL, JESÚS FERNANDO"
     ],
@@ -41595,7 +41639,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "CAPITANICH, JORGE MILTON"
     ],
@@ -41635,7 +41679,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "OROZCO, MARÍA EMILIA"
     ],
@@ -41678,7 +41722,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "SORIA, MARTIN IGNACIO"
     ],
@@ -41729,7 +41773,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "SORIA, MARTIN IGNACIO"
     ],
@@ -41767,7 +41811,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "CAPITANICH, JORGE MILTON"
     ],
@@ -41805,7 +41849,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "REJAL, JESÚS FERNANDO"
     ],
@@ -41843,7 +41887,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "REJAL, JESÚS FERNANDO"
     ],
@@ -41882,7 +41926,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "BENSUSÁN, DANIEL PABLO"
     ],
@@ -41920,7 +41964,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "VALENZUELA, MERCEDES GABRIELA"
     ],
@@ -41966,7 +42010,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "VALENZUELA, MERCEDES GABRIELA"
     ],
@@ -42012,7 +42056,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "AVILA, BEATRIZ LUISA"
     ],
@@ -42050,7 +42094,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "KIRCHNER, ALICIA MARGARITA ANTONIA"
     ],
@@ -42088,7 +42132,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "KIRCHNER, ALICIA MARGARITA ANTONIA"
     ],
@@ -42127,7 +42171,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "KIRCHNER, ALICIA MARGARITA ANTONIA"
     ],
@@ -42166,7 +42210,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "KIRCHNER, ALICIA MARGARITA ANTONIA"
     ],
@@ -42204,7 +42248,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "KIRCHNER, ALICIA MARGARITA ANTONIA"
     ],
@@ -185474,7 +185518,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 56,
@@ -185508,7 +185552,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -185543,7 +185587,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 55,
@@ -185576,7 +185620,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -185636,7 +185680,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 54,
@@ -185669,7 +185713,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -185729,7 +185773,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 53,
@@ -185762,7 +185806,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -185822,7 +185866,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 52,
@@ -185855,7 +185899,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -185915,7 +185959,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 51,
@@ -185948,7 +185992,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -185983,7 +186027,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 50,
@@ -186009,7 +186053,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 50,
@@ -186042,7 +186086,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -186077,7 +186121,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 49,
@@ -186103,7 +186147,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 49,
@@ -186137,7 +186181,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -186172,7 +186216,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 48,
@@ -186198,7 +186242,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 48,
@@ -186230,7 +186274,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -186265,7 +186309,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 47,
@@ -186291,7 +186335,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 47,
@@ -186325,7 +186369,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -186360,7 +186404,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 46,
@@ -186386,7 +186430,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 46,
@@ -186419,7 +186463,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -186454,7 +186498,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 45,
@@ -186487,7 +186531,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -186522,7 +186566,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 44,
@@ -186580,7 +186624,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -186615,7 +186659,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 43,
@@ -186672,7 +186716,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -186707,7 +186751,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 42,
@@ -186733,7 +186777,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 42,
@@ -186765,7 +186809,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -186800,7 +186844,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 41,
@@ -186826,7 +186870,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 41,
@@ -186858,7 +186902,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -186893,7 +186937,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 40,
@@ -186919,7 +186963,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 40,
@@ -186953,7 +186997,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -186988,7 +187032,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 39,
@@ -187047,7 +187091,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -187082,7 +187126,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 38,
@@ -187108,7 +187152,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 38,
@@ -187140,7 +187184,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -187175,7 +187219,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 37,
@@ -187201,7 +187245,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 37,
@@ -187234,7 +187278,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -187269,7 +187313,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 36,
@@ -187295,7 +187339,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 36,
@@ -187328,7 +187372,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -187363,7 +187407,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 35,
@@ -187389,7 +187433,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 35,
@@ -187422,7 +187466,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -187482,7 +187526,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 34,
@@ -187549,7 +187593,7 @@
     "firmantes_trazabilidad": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 33,
@@ -187575,7 +187619,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 33,
@@ -187601,7 +187645,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 33,
@@ -187669,7 +187713,7 @@
     "firmantes_trazabilidad": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 32,
@@ -187695,7 +187739,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 32,
@@ -187721,7 +187765,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 32,
@@ -187754,7 +187798,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07",
+    "_ultima_revision": "2026-11-26",
     "autores_caratula": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
@@ -187789,7 +187833,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 31,
@@ -187815,7 +187859,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 31,
@@ -187883,7 +187927,7 @@
     "firmantes_trazabilidad": [
       "GARCÍA LARRABURU, SILVINA MARCELA"
     ],
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 30,
@@ -187909,7 +187953,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 30,
@@ -187935,7 +187979,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 30,
@@ -188003,7 +188047,7 @@
     "firmantes_trazabilidad": [
       "RODAS, ANTONIO JOSÉ"
     ],
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 29,
@@ -188029,7 +188073,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-07"
+    "_ultima_revision": "2026-11-26"
   },
   {
     "nro": 29,
