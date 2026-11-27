@@ -27,6 +27,82 @@
     "_ultima_revision": "2026-11-20"
   },
   {
+    "nro": 2060,
+    "anio": 2026,
+    "tipo": "CO",
+    "tipo_label": "Comunicación de Senadores",
+    "extracto": "PLANTEA CUESTION DE PRIVILEGIO.",
+    "autores": [
+      "BAHL, ADÁN HUMBERTO"
+    ],
+    "coautores": [],
+    "bloques": [
+      "JUSTICIALISTA"
+    ],
+    "provincias": [
+      "ENTRE RÍOS"
+    ],
+    "comisiones": [
+      "DE ASUNTOS CONSTITUCIONALES"
+    ],
+    "fecha": "27/11/2026",
+    "dae": "",
+    "origen": "S",
+    "url": "https://www.senado.gob.ar/parlamentario/comisiones/verExp/2060.26/S/CO",
+    "sancionado": false,
+    "ley_numero": null,
+    "fecha_ley": null,
+    "archivado": false,
+    "fecha_archivo": null,
+    "caduca": false,
+    "fecha_caduca": null,
+    "_ultima_revision": "2026-11-27",
+    "autores_caratula": [
+      "BAHL, ADÁN HUMBERTO"
+    ],
+    "bloques_caratula": [
+      "JUSTICIALISTA"
+    ]
+  },
+  {
+    "nro": 2059,
+    "anio": 2026,
+    "tipo": "CO",
+    "tipo_label": "Comunicación de Senadores",
+    "extracto": "PLANTEA CUESTIÓN DE PRIVILEGIO.",
+    "autores": [
+      "COTO, AGUSTÍN PEDRO"
+    ],
+    "coautores": [],
+    "bloques": [
+      "LA LIBERTAD AVANZA"
+    ],
+    "provincias": [
+      "TIERRA DEL FUEGO, ANTÁRTIDA E ISLAS DEL ATLÁNTICO SUR"
+    ],
+    "comisiones": [
+      "DE ASUNTOS CONSTITUCIONALES"
+    ],
+    "fecha": "26/11/2026",
+    "dae": "",
+    "origen": "S",
+    "url": "https://www.senado.gob.ar/parlamentario/comisiones/verExp/2059.26/S/CO",
+    "sancionado": false,
+    "ley_numero": null,
+    "fecha_ley": null,
+    "archivado": false,
+    "fecha_archivo": null,
+    "caduca": false,
+    "fecha_caduca": null,
+    "_ultima_revision": "2026-11-27",
+    "autores_caratula": [
+      "COTO, AGUSTÍN PEDRO"
+    ],
+    "bloques_caratula": [
+      "LA LIBERTAD AVANZA"
+    ]
+  },
+  {
     "nro": 2053,
     "anio": 2026,
     "tipo": "CC",
@@ -6396,7 +6472,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "KIRCHNER, ALICIA MARGARITA ANTONIA"
     ],
@@ -6435,7 +6511,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "GUZMÁN CORAITA, GONZALO",
       "OROZCO, MARÍA EMILIA"
@@ -6475,7 +6551,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "LÓPEZ, MARÍA FLORENCIA"
     ],
@@ -6513,7 +6589,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "ROYON, FLAVIA GABRIELA"
     ],
@@ -6551,7 +6627,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "HUALA, MARÍA VICTORIA"
     ],
@@ -6589,7 +6665,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "HUALA, MARÍA VICTORIA"
     ],
@@ -6627,7 +6703,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "HUALA, MARÍA VICTORIA"
     ],
@@ -6665,7 +6741,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "FAMA, FLAVIO SERGIO"
     ],
@@ -6703,7 +6779,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "DE PEDRO, EDUARDO ENRIQUE"
     ],
@@ -6741,7 +6817,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "DE PEDRO, EDUARDO ENRIQUE"
     ],
@@ -6782,7 +6858,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "DE PEDRO, EDUARDO ENRIQUE"
     ],
@@ -6820,7 +6896,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "DE PEDRO, EDUARDO ENRIQUE"
     ],
@@ -6858,7 +6934,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "DE PEDRO, EDUARDO ENRIQUE"
     ],
@@ -6898,7 +6974,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "DE PEDRO, EDUARDO ENRIQUE"
     ],
@@ -6936,7 +7012,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "MORENO, ELIA ESTHER DEL CARMEN"
     ],
@@ -6974,7 +7050,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "KIRCHNER, ALICIA MARGARITA ANTONIA"
     ],
@@ -7012,7 +7088,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "KIRCHNER, ALICIA MARGARITA ANTONIA"
     ],
@@ -7050,7 +7126,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "CAPITANICH, JORGE MILTON"
     ],
@@ -7088,7 +7164,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "CAPITANICH, JORGE MILTON"
     ],
@@ -7126,7 +7202,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "OLIVERA LUCERO, BRUNO ANTONIO"
     ],
@@ -7165,7 +7241,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "ARCE, CARLOS OMAR",
       "ROJAS DECUT, SONIA ELIZABETH"
@@ -7206,7 +7282,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "ARCE, CARLOS OMAR",
       "ROJAS DECUT, SONIA ELIZABETH"
@@ -7246,7 +7322,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "REJAL, JESÚS FERNANDO"
     ],
@@ -7285,7 +7361,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "MARKS, ANA INÉS",
       "SORIA, MARTIN IGNACIO"
@@ -7325,7 +7401,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "CORROZA, JULIETA"
     ],
@@ -7378,7 +7454,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "MOISES, MARÍA CAROLINA"
     ],
@@ -7417,7 +7493,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "ARCE, CARLOS OMAR",
       "ROJAS DECUT, SONIA ELIZABETH"
@@ -7458,7 +7534,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "TERENZI, EDITH ELIZABETH"
     ],
@@ -7496,7 +7572,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-09",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "GALARETTO, EDUARDO HORACIO"
     ],
@@ -46529,7 +46605,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "CAPITANICH, JORGE MILTON"
     ],
@@ -46568,7 +46644,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "CAPITANICH, JORGE MILTON"
     ],
@@ -46606,7 +46682,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "MAYANS, JOSÉ MIGUEL ÁNGEL"
     ],
@@ -46651,7 +46727,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "VISCHI, EDUARDO ALEJANDRO"
     ],
@@ -46695,7 +46771,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "CAPITANICH, JORGE MILTON"
     ],
@@ -46733,7 +46809,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "TERENZI, EDITH ELIZABETH"
     ],
@@ -46831,7 +46907,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "SCHNEIDER, SILVANA LORENA"
     ],
@@ -46869,7 +46945,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "SCHNEIDER, SILVANA LORENA"
     ],
@@ -46907,7 +46983,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "TERENZI, EDITH ELIZABETH"
     ],
@@ -46945,7 +47021,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "TERENZI, EDITH ELIZABETH"
     ],
@@ -46993,7 +47069,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "TERENZI, EDITH ELIZABETH"
     ],
@@ -47084,7 +47160,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "JURI, MARIANA",
       "SUÁREZ, RODOLFO ALEJANDRO"
@@ -47124,7 +47200,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "CORROZA, JULIETA"
     ],
@@ -47162,7 +47238,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "CORROZA, JULIETA"
     ],
@@ -47200,7 +47276,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "CORROZA, JULIETA"
     ],
@@ -47238,7 +47314,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "CORROZA, JULIETA"
     ],
@@ -47276,7 +47352,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "ZAMORA, GERARDO"
     ],
@@ -47323,7 +47399,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "BENSUSÁN, DANIEL PABLO"
     ],
@@ -47361,7 +47437,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "BENSUSÁN, DANIEL PABLO"
     ],
@@ -47408,7 +47484,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "SORIA, MARTIN IGNACIO"
     ],
@@ -47446,7 +47522,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "FERNÁNDEZ SAGASTI, ANABEL"
     ],
@@ -188130,7 +188206,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "RODAS, ANTONIO JOSÉ"
     ],
@@ -188165,7 +188241,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 28,
@@ -188191,7 +188267,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 28,
@@ -188223,7 +188299,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "RODAS, ANTONIO JOSÉ"
     ],
@@ -188258,7 +188334,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 27,
@@ -188284,7 +188360,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 27,
@@ -188316,7 +188392,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "RODAS, ANTONIO JOSÉ"
     ],
@@ -188351,7 +188427,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 26,
@@ -188364,7 +188440,7 @@
     "bloques": [],
     "provincias": [],
     "comisiones": [
-      "DE SUPERVISIóN PARLAMENTARIA DE LA OFICINA DE PRESUPUESTO DEL CONGRESO (LEY 27.343)",
+      "DE SUPERVISIÓN PARLAMENTARIA DE LA OFICINA DE PRESUPUESTO DEL CONGRESO (LEY 27.343)",
       "DE PRESUPUESTO Y HACIENDA"
     ],
     "fecha": "07/05/2025",
@@ -188378,7 +188454,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 26,
@@ -188410,7 +188486,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "RODAS, ANTONIO JOSÉ"
     ],
@@ -188445,7 +188521,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 25,
@@ -188471,7 +188547,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 25,
@@ -188503,7 +188579,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "RODAS, ANTONIO JOSÉ"
     ],
@@ -188538,7 +188614,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 24,
@@ -188564,7 +188640,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 24,
@@ -188592,7 +188668,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 24,
@@ -188635,7 +188711,7 @@
     "firmantes_trazabilidad": [
       "RODAS, ANTONIO JOSÉ"
     ],
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 23,
@@ -188661,7 +188737,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 23,
@@ -188687,7 +188763,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 23,
@@ -188714,7 +188790,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 23,
@@ -188757,7 +188833,7 @@
     "firmantes_trazabilidad": [
       "RODAS, ANTONIO JOSÉ"
     ],
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 22,
@@ -188783,7 +188859,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 22,
@@ -188811,7 +188887,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 22,
@@ -188838,7 +188914,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 22,
@@ -188881,7 +188957,7 @@
     "firmantes_trazabilidad": [
       "RODAS, ANTONIO JOSÉ"
     ],
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 21,
@@ -188907,7 +188983,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 21,
@@ -188933,7 +189009,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 21,
@@ -189001,7 +189077,7 @@
     "firmantes_trazabilidad": [
       "RODAS, ANTONIO JOSÉ"
     ],
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 20,
@@ -189027,7 +189103,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 20,
@@ -189079,7 +189155,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 20,
@@ -189112,7 +189188,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "RODAS, ANTONIO JOSÉ"
     ],
@@ -189186,7 +189262,7 @@
     "bloques": [],
     "provincias": [],
     "comisiones": [
-      "DE SUPERVISIóN PARLAMENTARIA DE LA OFICINA DE PRESUPUESTO DEL CONGRESO (LEY 27.343) Solo para conocimiento : \n\t\t\t\t\t\t\t\t\t\t2",
+      "DE SUPERVISIÓN PARLAMENTARIA DE LA OFICINA DE PRESUPUESTO DEL CONGRESO (LEY 27.343) Solo para conocimiento : \n\t\t\t\t\t\t\t\t\t\t2",
       "DE PRESUPUESTO Y HACIENDA"
     ],
     "fecha": "09/04/2025",
@@ -189200,7 +189276,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 19,
@@ -189235,7 +189311,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "RODAS, ANTONIO JOSÉ"
     ],
@@ -189296,7 +189372,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 18,
@@ -189330,7 +189406,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "RODAS, ANTONIO JOSÉ"
     ],
@@ -189365,7 +189441,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 17,
@@ -189399,7 +189475,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "RODAS, ANTONIO JOSÉ"
     ],
@@ -189459,7 +189535,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 16,
@@ -189486,7 +189562,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 16,
@@ -189512,7 +189588,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 16,
@@ -189545,7 +189621,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08",
+    "_ultima_revision": "2026-11-27",
     "autores_caratula": [
       "RODAS, ANTONIO JOSÉ"
     ],
@@ -189605,7 +189681,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 15,
@@ -189631,7 +189707,7 @@
     "fecha_archivo": null,
     "caduca": false,
     "fecha_caduca": null,
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 15,
@@ -189725,7 +189801,7 @@
     "firmantes_trazabilidad": [
       "RODAS, ANTONIO JOSÉ"
     ],
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 14,
@@ -190503,7 +190579,7 @@
     "firmantes_trazabilidad": [
       "SAPAG, SILVIA ESTELA"
     ],
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 7,
@@ -190622,7 +190698,7 @@
     "firmantes_trazabilidad": [
       "SAPAG, SILVIA ESTELA"
     ],
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 6,
@@ -190742,7 +190818,7 @@
     "firmantes_trazabilidad": [
       "SAPAG, SILVIA ESTELA"
     ],
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 5,
@@ -190862,7 +190938,7 @@
     "firmantes_trazabilidad": [
       "SAPAG, SILVIA ESTELA"
     ],
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 4,
@@ -190956,7 +191032,7 @@
     "firmantes_trazabilidad": [
       "SAPAG, SILVIA ESTELA"
     ],
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 3,
@@ -191050,7 +191126,7 @@
     "firmantes_trazabilidad": [
       "SAPAG, SILVIA ESTELA"
     ],
-    "_ultima_revision": "2026-11-08"
+    "_ultima_revision": "2026-11-27"
   },
   {
     "nro": 2,
